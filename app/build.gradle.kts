@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.aristidevs.convertirdorunidadesandroid"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.aristidevs.convertirdorunidadesandroid"
