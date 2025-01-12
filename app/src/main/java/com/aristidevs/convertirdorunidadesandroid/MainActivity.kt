@@ -5,8 +5,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,7 +25,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ConvertirdorUnidadesAndroidTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
+                    Fondo(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
@@ -33,21 +36,30 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun Fondo(name: String, modifier: Modifier = Modifier) {
+
+}
+
+@Composable
+fun menu(){
+    DropdownMenu(
+        expanded = false,
+        onDismissRequest = {false},
+        modifier = Modifier.fillMaxWidth()
+    ) {
+
+    }
 }
 
 @Preview(showBackground = true,
     device = "spec:parent=pixel_9", name = "Pixel 9",
     uiMode = Configuration.UI_MODE_NIGHT_NO or Configuration.UI_MODE_TYPE_NORMAL,
-    wallpaper = Wallpapers.NONE
+    wallpaper = Wallpapers.NONE,
+    showSystemUi = true,
 )
 @Composable
 fun GreetingPreview() {
     ConvertirdorUnidadesAndroidTheme {
-        Greeting("Android")
+        Fondo("Android")
     }
 }
