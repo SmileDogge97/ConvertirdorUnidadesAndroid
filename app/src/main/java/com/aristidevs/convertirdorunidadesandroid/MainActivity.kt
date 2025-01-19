@@ -29,6 +29,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.Wallpapers
 import androidx.compose.ui.unit.dp
@@ -37,6 +41,13 @@ import com.aristidevs.convertirdorunidadesandroid.ui.theme.ConvertirdorUnidadesA
 import java.time.format.TextStyle
 
 class MainActivity : ComponentActivity() {
+
+    val monserratFamily = FontFamily(
+        Font(R.font.montserrat, FontWeight.Normal),
+        Font(R.font.montserrat_italic, FontWeight.Light)
+    )
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -51,11 +62,10 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-}
 
 @Composable
 fun Fondo(name: String, modifier: Modifier = Modifier) {
-    Column {
+    Column(modifier= Modifier.padding(16.dp)) {
         Encabezado()
         Box(Modifier.fillMaxHeight().verticalScroll(rememberScrollState())){
 
@@ -71,7 +81,7 @@ fun Encabezado() {
     ) {
         Text(
             text = "CONVERSION",
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f), fontFamily = monserratFamily, fontWeight = FontWeight.Bold
         )
         menu()
     }
@@ -133,4 +143,5 @@ fun GreetingPreview() {
     ConvertirdorUnidadesAndroidTheme {
         Fondo("Android")
     }
+}
 }
