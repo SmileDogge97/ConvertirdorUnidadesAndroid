@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">ConvertirdorUnidadesAndroid</string>
+
+    <string name="titulo_temperatura">Temperatura</string>
+
+    <string name="placeholder_temperatura">Ingresa la temperatura</string>
+    <string name="placeholder_textfield_temperature">0.0</string>
+
+    <string name="menu_temperatura">Selecciona la temperature</string>
+
+    <string name="temperatura_celsius">Celsius</string>
+    <string name="temperatura_farenheit">Farenheit</string>
+    <string name="temperatura_rankine">Rankine</string>
+    <string name="temperatura_kelvin">Kelvin</string>
 </resources>
