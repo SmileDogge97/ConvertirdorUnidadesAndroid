@@ -1,15 +1,21 @@
 <resources>
     <string name="app_name">ConvertirdorUnidadesAndroid</string>
 
+    <!-- Titulos -->
     <string name="titulo_temperatura">Temperatura</string>
     <string name="titulo_area">Area</string>
+    <string name="titulo_volumen">Volumen</string>
 
+    <!-- Placeholders -->
     <string name="placeholder_temperatura">Ingresa la temperatura</string>
     <string name="placeholder_area">Ingresa el area</string>
-    <string name="placeholder_textfield_temperature">0.0</string>
+    <string name="placeholder_volumen">Ingresa el volumen</string>
+
+    <string name="placeholder_cantidad">0.0</string>
 
     <string name="menu_temperatura">Selecciona la unidad de temperatura</string>
     <string name="menu_area">Selecciona la unidad de area</string>
+    <string name="menu_volumen">Selecciona la unidad de volumen</string>
 
     <!-- Unidades de Temperatura -->
     <string name="temperatura_celsius">Celsius</string>
@@ -25,5 +31,13 @@
     <string name="area_pie">Pie</string>
     <string name="area_yarda">Yarda</string>
     <string name="area_milla">Milla</string>
+
+    <!-- Unidades de Volumen -->
+    <string name="volumen_centimetro">Centimetro</string>
+    <string name="volumen_metro">Metro</string>
+    <string name="volumen_pie">Pie</string>
+    <string name="volumen_pulgada">Pulgada</string>
+    <string name="volumen_litro">Litro</string>
+    <string name="volumen_galon">Galon</string>
 
 </resources>
