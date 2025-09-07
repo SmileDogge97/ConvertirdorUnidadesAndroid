@@ -65,7 +65,7 @@ class AreaCompose {
                 modifier = Modifier.Companion.weight(2F)
             )
             TextField(
-                value = stringResource(R.string.placeholder_textfield_temperature),
+                value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
                 modifier = Modifier.Companion.weight(7F)
@@ -86,7 +86,7 @@ class AreaCompose {
                 modifier = Modifier.Companion.weight(2F)
             )
             TextField(
-                value = stringResource(R.string.placeholder_textfield_temperature),
+                value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
                 modifier = Modifier.Companion.weight(7F)
@@ -107,7 +107,7 @@ class AreaCompose {
                 modifier = Modifier.Companion.weight(2F)
             )
             TextField(
-                value = stringResource(R.string.placeholder_textfield_temperature),
+                value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
                 modifier = Modifier.Companion.weight(7F)
@@ -128,7 +128,7 @@ class AreaCompose {
                 modifier = Modifier.Companion.weight(2F)
             )
             TextField(
-                value = stringResource(R.string.placeholder_textfield_temperature),
+                value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
                 modifier = Modifier.Companion.weight(7F)
@@ -149,7 +149,7 @@ class AreaCompose {
                 modifier = Modifier.Companion.weight(2F)
             )
             TextField(
-                value = stringResource(R.string.placeholder_textfield_temperature),
+                value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
                 modifier = Modifier.Companion.weight(7F)
@@ -170,7 +170,7 @@ class AreaCompose {
                 modifier = Modifier.Companion.weight(2F)
             )
             TextField(
-                value = stringResource(R.string.placeholder_textfield_temperature),
+                value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
                 modifier = Modifier.Companion.weight(7F)
@@ -191,7 +191,7 @@ class AreaCompose {
                 modifier = Modifier.Companion.weight(2F)
             )
             TextField(
-                value = stringResource(R.string.placeholder_textfield_temperature),
+                value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
                 modifier = Modifier.Companion.weight(7F)

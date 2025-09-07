@@ -1,4 +1,4 @@
-package com.aristidevs.convertirdorunidadesandroid.UI
+package com.aristidevs.convertirdorunidadesandroid.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -27,153 +27,157 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.aristidevs.convertirdorunidadesandroid.R
 
-class TemperaturaCompose {
+class TiempoCompose {
 
     @Composable
-    @Preview(
-        showBackground = true
-    )
-    fun temperaturaUI() {
+    @Preview(showBackground = true)
+    fun tiempoUI() {
         Column(modifier = Modifier.padding(15.dp),
             horizontalAlignment = Alignment.CenterHorizontally) {
-            tituloTemperatura()
-            temperaturaInput()
-            temperaturasOutput()
+            TituloTiempo()
+            TiempoInput()
+            TiempoOutput()
         }
-
     }
 
     @Composable
-    fun tituloTemperatura() {
+    fun TiempoOutput() {
+        RenglonSegundo()
+        RenglonMinuto()
+        RenglonHora()
+        RenglonDia()
+        RenglonAño()
+    }
+
+    @Composable
+    fun RenglonAño() {
+        var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center
+            modifier = Modifier.Companion.padding(15.dp),
+            verticalAlignment = Alignment.Companion.CenterVertically
         ) {
+
             Text(
-                text = stringResource(R.string.titulo_temperatura),
-                modifier = Modifier.Companion.padding(all = 15.dp),
-                textAlign = TextAlign.Companion.Center
+                text = stringResource(R.string.tiempo_año),
+                modifier = Modifier.Companion.weight(2F)
+            )
+            TextField(
+                value = stringResource(R.string.placeholder_cantidad),
+                readOnly = true,
+                onValueChange = { text = it },
+                modifier = Modifier.Companion.weight(7F)
             )
         }
     }
 
     @Composable
-    fun temperaturaInput() {
+    fun RenglonDia() {
+        var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.Companion.CenterVertically,
+            modifier = Modifier.Companion.padding(15.dp),
+            verticalAlignment = Alignment.Companion.CenterVertically
+        ) {
+
+            Text(
+                text = stringResource(R.string.tiempo_dia),
+                modifier = Modifier.Companion.weight(2F)
+            )
+            TextField(
+                value = stringResource(R.string.placeholder_cantidad),
+                readOnly = true,
+                onValueChange = { text = it },
+                modifier = Modifier.Companion.weight(7F)
+            )
+        }
+    }
+
+    @Composable
+    fun RenglonHora() {
+        var text by remember { mutableStateOf("") }
+        Row(
+            modifier = Modifier.Companion.padding(15.dp),
+            verticalAlignment = Alignment.Companion.CenterVertically
+        ) {
+
+            Text(
+                text = stringResource(R.string.tiempo_hora),
+                modifier = Modifier.Companion.weight(2F)
+            )
+            TextField(
+                value = stringResource(R.string.placeholder_cantidad),
+                readOnly = true,
+                onValueChange = { text = it },
+                modifier = Modifier.Companion.weight(7F)
+            )
+        }
+    }
+
+    @Composable
+    fun RenglonMinuto() {
+        var text by remember { mutableStateOf("") }
+        Row(
+            modifier = Modifier.Companion.padding(15.dp),
+            verticalAlignment = Alignment.Companion.CenterVertically
+        ) {
+
+            Text(
+                text = stringResource(R.string.tiempo_minuto),
+                modifier = Modifier.Companion.weight(2F)
+            )
+            TextField(
+                value = stringResource(R.string.placeholder_cantidad),
+                readOnly = true,
+                onValueChange = { text = it },
+                modifier = Modifier.Companion.weight(7F)
+            )
+        }
+    }
+
+    @Composable
+    fun RenglonSegundo() {
+        var text by remember { mutableStateOf("") }
+        Row(
+            modifier = Modifier.Companion.padding(15.dp),
+            verticalAlignment = Alignment.Companion.CenterVertically
+        ) {
+
+            Text(
+                text = stringResource(R.string.tiempo_segundo),
+                modifier = Modifier.Companion.weight(2F)
+            )
+            TextField(
+                value = stringResource(R.string.placeholder_cantidad),
+                readOnly = true,
+                onValueChange = { text = it },
+                modifier = Modifier.Companion.weight(7F)
+            )
+        }
+    }
+
+    @Composable
+    fun TiempoInput() {
+        Row(modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ) {
             var text by remember { mutableStateOf("") }
             TextField(
                 value = text,
                 onValueChange = { text = it },
-                placeholder = { Text(text = stringResource(R.string.placeholder_temperatura)) }
+                placeholder = { Text(text = stringResource(R.string.placeholder_area)) }
             )
-            menuTemperatura()
+            menuTiempo()
         }
     }
 
     @Composable
-    fun temperaturasOutput() {
-        renglonCelsius()
-        renglonFahrenheit()
-        renglonKelvin()
-        renglonRankine()
-    }
-
-    @Composable
-    private fun renglonCelsius() {
-        var text by remember { mutableStateOf("") }
-        Row(
-            modifier = Modifier.Companion.padding(15.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
-        ) {
-
-            Text(
-                text = stringResource(R.string.temperatura_celsius),
-                modifier = Modifier.Companion.weight(2F)
-            )
-            TextField(
-                value = stringResource(R.string.placeholder_cantidad),
-                readOnly = true,
-                onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(8F)
-            )
-        }
-    }
-
-    @Composable
-    private fun renglonFahrenheit() {
-        var text by remember { mutableStateOf("") }
-        Row(
-            modifier = Modifier.Companion.padding(15.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
-        ) {
-
-            Text(
-                text = stringResource(R.string.temperatura_farenheit),
-                modifier = Modifier.Companion.weight(2F)
-            )
-            TextField(
-                value = stringResource(R.string.placeholder_cantidad),
-                readOnly = true,
-                onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(8F)
-            )
-        }
-    }
-
-    @Composable
-    private fun renglonKelvin() {
-        var text by remember { mutableStateOf("") }
-        Row(
-            modifier = Modifier.Companion.padding(15.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
-        ) {
-
-            Text(
-                text = stringResource(R.string.temperatura_kelvin),
-                modifier = Modifier.Companion.weight(2F)
-            )
-            TextField(
-                value = stringResource(R.string.placeholder_cantidad),
-                onValueChange = { text = it },
-                readOnly = true,
-                modifier = Modifier.Companion.weight(8F)
-            )
-        }
-    }
-
-    @Composable
-    private fun renglonRankine() {
-        var text by remember { mutableStateOf("") }
-        Row(
-            modifier = Modifier.Companion.padding(15.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
-        ) {
-
-            Text(
-                text = stringResource(R.string.temperatura_rankine),
-                modifier = Modifier.Companion.weight(2F)
-            )
-            TextField(
-                value = stringResource(R.string.placeholder_cantidad),
-                onValueChange = { text = it },
-                readOnly = true,
-                modifier = Modifier.Companion.weight(8F)
-            )
-        }
-    }
-
-    @Composable
-    private fun menuTemperatura(){
+    private fun menuTiempo() {
         var expanded by remember { mutableStateOf(false) }
         Box() {
             IconButton(onClick = { expanded = !expanded }) {
                 Icon(
                     imageVector = Icons.Default.MoreVert,
-                    contentDescription = stringResource(R.string.menu_temperatura)
+                    contentDescription = stringResource(R.string.menu_tiempo)
                 )
             }
             DropdownMenu(
@@ -181,23 +185,43 @@ class TemperaturaCompose {
                 onDismissRequest = { expanded = false }
             ) {
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.temperatura_celsius)) },
+                    text = { Text(text = stringResource(R.string.tiempo_segundo)) },
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.temperatura_farenheit)) },
+                    text = { Text(text = stringResource(R.string.tiempo_minuto)) },
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.temperatura_kelvin)) },
+                    text = { Text(text = stringResource(R.string.tiempo_hora)) },
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.temperatura_rankine)) },
+                    text = { Text(text = stringResource(R.string.tiempo_dia)) },
+                    onClick = { }
+                )
+                DropdownMenuItem(
+                    text = { Text(text = stringResource(R.string.tiempo_año)) },
                     onClick = { }
                 )
             }
         }
     }
 
+    @Composable
+    fun TituloTiempo() {
+        @Composable
+        fun TituloVolumen() {
+            Row(
+                modifier = Modifier.Companion.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                Text(
+                    text = stringResource(R.string.titulo_tiempo),
+                    modifier = Modifier.Companion.padding(all = 15.dp),
+                    textAlign = TextAlign.Companion.Center
+                )
+            }
+        }
+    }
 }

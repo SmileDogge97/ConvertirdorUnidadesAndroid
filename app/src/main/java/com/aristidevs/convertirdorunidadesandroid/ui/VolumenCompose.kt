@@ -33,7 +33,7 @@ class VolumenCompose {
     @Preview(
         showBackground = true
     )
-    fun VolumenUI() {
+    fun volumenUI() {
         Column(modifier = Modifier.padding(15.dp),
             horizontalAlignment = Alignment.CenterHorizontally) {
             TituloVolumen()
