@@ -2,14 +2,28 @@
     <string name="app_name">ConvertirdorUnidadesAndroid</string>
 
     <string name="titulo_temperatura">Temperatura</string>
+    <string name="titulo_area">Area</string>
 
     <string name="placeholder_temperatura">Ingresa la temperatura</string>
+    <string name="placeholder_area">Ingresa el area</string>
     <string name="placeholder_textfield_temperature">0.0</string>
 
-    <string name="menu_temperatura">Selecciona la temperature</string>
+    <string name="menu_temperatura">Selecciona la unidad de temperatura</string>
+    <string name="menu_area">Selecciona la unidad de area</string>
 
+    <!-- Unidades de Temperatura -->
     <string name="temperatura_celsius">Celsius</string>
     <string name="temperatura_farenheit">Farenheit</string>
     <string name="temperatura_rankine">Rankine</string>
     <string name="temperatura_kelvin">Kelvin</string>
+
+    <!-- Unidades de Area -->
+    <string name="area_metro">Metro</string>
+    <string name="area_hectarea">Hectarea</string>
+    <string name="area_centimetro">Centimetro</string>
+    <string name="area_pulgada">Pulgada</string>
+    <string name="area_pie">Pie</string>
+    <string name="area_yarda">Yarda</string>
+    <string name="area_milla">Milla</string>
+
 </resources>
