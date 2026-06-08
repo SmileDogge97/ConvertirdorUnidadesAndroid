@@ -7,12 +7,14 @@
     <string name="titulo_volumen">Volumen</string>
     <string name="titulo_tiempo">Tiempo</string>
     <string name="titulo_velocidad">Velocidad</string>
+    <string name="titulo_peso">Peso</string>
 
     <!-- Placeholders -->
     <string name="placeholder_temperatura">Ingresa la temperatura</string>
     <string name="placeholder_area">Ingresa el area</string>
     <string name="placeholder_volumen">Ingresa el volumen</string>
     <string name="placeholder_velocidad">Ingresa la velocidad</string>>
+    <string name="placeholder_peso">Ingresa el peso</string>>
 
     <string name="placeholder_cantidad">0.0</string>
 
@@ -21,6 +23,7 @@
     <string name="menu_volumen">Selecciona la unidad de volumen</string>
     <string name="menu_tiempo">Selecciona la unidad de tiempo</string>
     <string name="menu_velocidad">Selecciona la unidad de velocidad</string>
+    <string name="menu_peso">Selecciona la unidad de peso</string>
 
     <!-- Unidades de Temperatura -->
     <string name="temperatura_celsius">Celsius</string>
@@ -58,4 +61,10 @@
     <string name="velocidad_ft_s">ft/s</string>
     <string name="velocidad_mi_h">mi/h</string>
     <string name="velocidad_nudo">Nudos</string>
+    
+    <!-- Unidades de Peso -->
+    <string name="peso_gramo">Gramo</string>
+    <string name="peso_kilogramo">Kilogramo</string>
+    <string name="peso_libra">Libra</string>
+    <string name="peso_tonelada">Tonelada</string>
 </resources>
