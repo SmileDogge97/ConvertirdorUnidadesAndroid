@@ -8,13 +8,15 @@
     <string name="titulo_tiempo">Tiempo</string>
     <string name="titulo_velocidad">Velocidad</string>
     <string name="titulo_peso">Peso</string>
+    <string name="titulo_longitud">Longitud</string>
 
     <!-- Placeholders -->
     <string name="placeholder_temperatura">Ingresa la temperatura</string>
     <string name="placeholder_area">Ingresa el area</string>
     <string name="placeholder_volumen">Ingresa el volumen</string>
-    <string name="placeholder_velocidad">Ingresa la velocidad</string>>
-    <string name="placeholder_peso">Ingresa el peso</string>>
+    <string name="placeholder_velocidad">Ingresa la velocidad</string>
+    <string name="placeholder_peso">Ingresa el peso</string>
+    <string name="placeholder_longitud">Ingresa la longitud</string>
 
     <string name="placeholder_cantidad">0.0</string>
 
@@ -24,6 +26,7 @@
     <string name="menu_tiempo">Selecciona la unidad de tiempo</string>
     <string name="menu_velocidad">Selecciona la unidad de velocidad</string>
     <string name="menu_peso">Selecciona la unidad de peso</string>
+    <string name="menu_longitud">Selecciona la unidad de longitud</string>
 
     <!-- Unidades de Temperatura -->
     <string name="temperatura_celsius">Celsius</string>
@@ -53,7 +56,7 @@
     <string name="tiempo_minuto">Minuto</string>
     <string name="tiempo_hora">Hora</string>
     <string name="tiempo_dia">Día</string>
-    <string name="tiempo_año">Año</string>
+    <string name="tiempo_anio">Año</string>
 
     <!-- Unidades de Velocidad -->
     <string name="velocidad_m_s">m/s</string>
@@ -67,4 +70,15 @@
     <string name="peso_kilogramo">Kilogramo</string>
     <string name="peso_libra">Libra</string>
     <string name="peso_tonelada">Tonelada</string>
+
+    <!-- Unidades de Longitud -->
+    <string name="longitud_metro">Metro</string>
+    <string name="longitud_kilometro">Kilometro</string>
+    <string name="longitud_centimetro">Centimetro</string>
+    <string name="longitud_pulgada">Pulgada</string>
+    <string name="longitud_pie">Pie</string>
+    <string name="longitud_yarda">Yarda</string>
+    <string name="longitud_milla">Milla</string>
+    <string name="longitud_milla_nautica">Milla Nautica</string>
+    <string name="longitud_anos_luz">Años Luz</string>
 </resources>

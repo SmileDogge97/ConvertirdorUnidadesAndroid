@@ -48,11 +48,11 @@ class TiempoCompose {
         RenglonMinuto()
         RenglonHora()
         RenglonDia()
-        RenglonAño()
+        RenglonAnio()
     }
 
     @Composable
-    fun RenglonAño() {
+    fun RenglonAnio() {
         var text by remember { mutableStateOf("") }
         Row(
             modifier = Modifier.Companion.padding(15.dp),
@@ -60,7 +60,7 @@ class TiempoCompose {
         ) {
 
             Text(
-                text = stringResource(R.string.tiempo_año),
+                text = stringResource(R.string.tiempo_anio),
                 modifier = Modifier.Companion.weight(2F)
             )
             TextField(
@@ -204,7 +204,7 @@ class TiempoCompose {
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.tiempo_año)) },
+                    text = { Text(text = stringResource(R.string.tiempo_anio)) },
                     onClick = { }
                 )
             }
