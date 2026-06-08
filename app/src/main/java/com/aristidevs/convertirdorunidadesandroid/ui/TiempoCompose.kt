@@ -32,8 +32,10 @@ class TiempoCompose {
     @Composable
     @Preview(showBackground = true)
     fun tiempoUI() {
-        Column(modifier = Modifier.padding(15.dp),
-            horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(
+            modifier = Modifier.padding(15.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             TituloTiempo()
             TiempoInput()
             TiempoOutput()
@@ -156,7 +158,8 @@ class TiempoCompose {
 
     @Composable
     fun TiempoInput() {
-        Row(modifier = Modifier.fillMaxWidth(),
+        Row(
+            modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ) {
@@ -210,18 +213,15 @@ class TiempoCompose {
 
     @Composable
     fun TituloTiempo() {
-        @Composable
-        fun TituloVolumen() {
-            Row(
-                modifier = Modifier.Companion.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Center
-            ) {
-                Text(
-                    text = stringResource(R.string.titulo_tiempo),
-                    modifier = Modifier.Companion.padding(all = 15.dp),
-                    textAlign = TextAlign.Companion.Center
-                )
-            }
+        Row(
+            modifier = Modifier.Companion.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = stringResource(R.string.titulo_tiempo),
+                modifier = Modifier.Companion.padding(all = 15.dp),
+                textAlign = TextAlign.Companion.Center
+            )
         }
     }
 }
