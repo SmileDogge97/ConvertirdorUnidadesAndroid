@@ -6,11 +6,13 @@
     <string name="titulo_area">Area</string>
     <string name="titulo_volumen">Volumen</string>
     <string name="titulo_tiempo">Tiempo</string>
+    <string name="titulo_velocidad">Velocidad</string>
 
     <!-- Placeholders -->
     <string name="placeholder_temperatura">Ingresa la temperatura</string>
     <string name="placeholder_area">Ingresa el area</string>
     <string name="placeholder_volumen">Ingresa el volumen</string>
+    <string name="placeholder_velocidad">Ingresa la velocidad</string>>
 
     <string name="placeholder_cantidad">0.0</string>
 
@@ -18,6 +20,7 @@
     <string name="menu_area">Selecciona la unidad de area</string>
     <string name="menu_volumen">Selecciona la unidad de volumen</string>
     <string name="menu_tiempo">Selecciona la unidad de tiempo</string>
+    <string name="menu_velocidad">Selecciona la unidad de velocidad</string>
 
     <!-- Unidades de Temperatura -->
     <string name="temperatura_celsius">Celsius</string>
@@ -49,5 +52,10 @@
     <string name="tiempo_dia">Día</string>
     <string name="tiempo_año">Año</string>
 
-
+    <!-- Unidades de Velocidad -->
+    <string name="velocidad_m_s">m/s</string>
+    <string name="velocidad_km_h">km/h</string>
+    <string name="velocidad_ft_s">ft/s</string>
+    <string name="velocidad_mi_h">mi/h</string>
+    <string name="velocidad_nudo">Nudos</string>
 </resources>
