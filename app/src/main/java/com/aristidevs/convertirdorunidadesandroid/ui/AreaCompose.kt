@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -33,10 +34,11 @@ class AreaCompose {
         showBackground = true
     )
     fun areaUI() {
-        Column(modifier = Modifier.padding(15.dp),
+        Column(modifier = Modifier.padding(7.dp),
             horizontalAlignment = Alignment.CenterHorizontally) {
             TituloArea()
             AreaInput()
+            Spacer(modifier = Modifier.padding(8.dp))
             AreaOutput()
         }
     }
@@ -56,7 +58,7 @@ class AreaCompose {
     private fun renglonMilla() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
 
@@ -77,7 +79,7 @@ class AreaCompose {
     private fun renglonYarda() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
 
@@ -98,7 +100,7 @@ class AreaCompose {
     private fun renglonPie() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
 
@@ -119,7 +121,7 @@ class AreaCompose {
     private fun renglonPulgada() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
 
@@ -140,7 +142,7 @@ class AreaCompose {
     private fun renglonCentimetro() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
 
@@ -161,7 +163,7 @@ class AreaCompose {
     private fun renglonHectarea() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
 
@@ -182,7 +184,7 @@ class AreaCompose {
     private fun renglonMetro() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
 
@@ -268,7 +270,7 @@ class AreaCompose {
         ) {
             Text(
                 text = stringResource(R.string.titulo_area),
-                modifier = Modifier.Companion.padding(all = 15.dp),
+                modifier = Modifier.Companion.padding(7.dp),
                 textAlign = TextAlign.Companion.Center
             )
         }

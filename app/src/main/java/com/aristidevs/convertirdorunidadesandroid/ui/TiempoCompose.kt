@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -33,11 +34,12 @@ class TiempoCompose {
     @Preview(showBackground = true)
     fun tiempoUI() {
         Column(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(7.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             TituloTiempo()
             TiempoInput()
+            Spacer(modifier = Modifier.padding(8.dp))
             TiempoOutput()
         }
     }
@@ -55,7 +57,7 @@ class TiempoCompose {
     fun RenglonAnio() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
 
@@ -76,7 +78,7 @@ class TiempoCompose {
     fun RenglonDia() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
 
@@ -97,7 +99,7 @@ class TiempoCompose {
     fun RenglonHora() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
 
@@ -118,7 +120,7 @@ class TiempoCompose {
     fun RenglonMinuto() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
 
@@ -139,7 +141,7 @@ class TiempoCompose {
     fun RenglonSegundo() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
 

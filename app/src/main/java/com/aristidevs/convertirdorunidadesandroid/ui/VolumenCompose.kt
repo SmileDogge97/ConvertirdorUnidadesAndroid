@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -34,10 +35,11 @@ class VolumenCompose {
         showBackground = true
     )
     fun volumenUI() {
-        Column(modifier = Modifier.padding(15.dp),
+        Column(modifier = Modifier.padding(7.dp),
             horizontalAlignment = Alignment.CenterHorizontally) {
             TituloVolumen()
             VolumenInput()
+            Spacer(modifier = Modifier.padding(8.dp))
             VolumenOutput()
         }
     }
@@ -56,7 +58,7 @@ class VolumenCompose {
     fun RenglonGalon() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
 
@@ -77,7 +79,7 @@ class VolumenCompose {
     fun RenglonLitro() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
 
@@ -98,7 +100,7 @@ class VolumenCompose {
     fun RenglonPulgada() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
 
@@ -119,7 +121,7 @@ class VolumenCompose {
     fun RenglonPie() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
 
@@ -140,7 +142,7 @@ class VolumenCompose {
     fun RenglonMetro() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
 
@@ -161,7 +163,7 @@ class VolumenCompose {
     fun RenglonCentimetro() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
 

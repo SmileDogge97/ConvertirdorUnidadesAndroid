@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -33,11 +34,12 @@ class Peso {
     @Preview(showBackground = true)
     fun masaUI() {
         Column(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(7.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             TituloPeso()
             PesoInput()
+            Spacer(modifier = Modifier.padding(8.dp))
             PesoOutput()
         }
     }
@@ -54,7 +56,7 @@ class Peso {
     fun RenglonTonelada(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
             Text(
@@ -74,7 +76,7 @@ class Peso {
     fun RenglonLibra(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
             Text(
@@ -94,7 +96,7 @@ class Peso {
     fun RenglonKilogramo(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
             Text(
@@ -114,7 +116,7 @@ class Peso {
     fun RenglonGramo(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(15.dp),
+            modifier = Modifier.Companion.padding(7.dp),
             verticalAlignment = Alignment.Companion.CenterVertically
         ) {
             Text(

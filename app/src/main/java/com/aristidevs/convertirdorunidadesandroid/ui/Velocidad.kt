@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -33,11 +34,12 @@ class Velocidad {
     @Preview(showBackground = true)
     fun velocidadUI() {
         Column(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(7.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             TituloVelocidad()
             VelocidadInput()
+            Spacer(modifier = Modifier.padding(8.dp))
             VelocidadOutput()
         }
     }
@@ -55,7 +57,7 @@ class Velocidad {
     fun RenglonNudos(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(7.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
@@ -75,7 +77,7 @@ class Velocidad {
     fun RenglonMillas(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(7.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
@@ -95,7 +97,7 @@ class Velocidad {
     fun RenglonPies(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(7.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
@@ -115,7 +117,7 @@ class Velocidad {
     fun RenglonKilometros(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(7.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
@@ -135,7 +137,7 @@ class Velocidad {
     fun RenglonMetros(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(7.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(

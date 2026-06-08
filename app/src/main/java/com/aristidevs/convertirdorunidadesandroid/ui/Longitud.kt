@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -33,11 +34,12 @@ class Longitud {
     @Preview(showBackground = true)
     fun longitudUI() {
         Column(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(7.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             TituloLongitud()
             LongitudInput()
+            Spacer(modifier = Modifier.padding(8.dp))
             LongitudOutput()
         }
     }
@@ -59,7 +61,7 @@ class Longitud {
     fun RenglonAnosLuz(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(7.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
@@ -79,12 +81,13 @@ class Longitud {
     fun RenglonMillaNautica(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(7.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = stringResource(R.string.longitud_milla_nautica),
-                modifier = Modifier.weight(2F)
+                maxLines = 2,
+                modifier = Modifier.weight(2F).padding(2.dp)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
@@ -99,7 +102,7 @@ class Longitud {
     fun RenglonMilla(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(7.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
@@ -119,7 +122,7 @@ class Longitud {
     fun RenglonYarda(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(7.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
@@ -139,7 +142,7 @@ class Longitud {
     fun RenglonPie(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(7.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
@@ -159,7 +162,7 @@ class Longitud {
     fun RenglonPulgada(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(7.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
@@ -179,7 +182,7 @@ class Longitud {
     fun RenglonCentimetro(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(7.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
@@ -199,7 +202,7 @@ class Longitud {
     fun RenglonKilometro(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(7.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
@@ -219,7 +222,7 @@ class Longitud {
     fun RenglonMetro(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.padding(15.dp),
+            modifier = Modifier.padding(7.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
