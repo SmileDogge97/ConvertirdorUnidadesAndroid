@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.DropdownMenu
@@ -25,14 +26,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewScreenSizes
 import androidx.compose.ui.unit.dp
 import com.aristidevs.convertirdorunidadesandroid.R
 
-class Longitud {
 
     @Composable
-    @Preview(showBackground = true)
     fun longitudUI() {
+        LongitudCompose()
+    }
+
+    @Composable
+    fun LongitudCompose() {
         Column(
             modifier = Modifier.padding(7.dp),
             horizontalAlignment = Alignment.CenterHorizontally
@@ -242,8 +247,6 @@ class Longitud {
     fun LongitudInput(){
         Row(
             modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center
         ) {
             var text by remember { mutableStateOf("") }
             TextField(
@@ -312,7 +315,6 @@ class Longitud {
     @Composable
     fun TituloLongitud() {
         Row(
-            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ){
             Text(
@@ -322,4 +324,3 @@ class Longitud {
             )
         }
     }
-}

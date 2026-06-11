@@ -28,13 +28,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.aristidevs.convertirdorunidadesandroid.R
 
-class TemperaturaCompose {
+
 
     @Composable
     @Preview(
         showBackground = true
     )
     fun temperaturaUI() {
+        TemperaturaCompose()
+    }
+
+    @Composable
+    fun TemperaturaCompose(){
         Column(modifier = Modifier.padding(7.dp),
             horizontalAlignment = Alignment.CenterHorizontally) {
             tituloTemperatura()
@@ -42,7 +47,6 @@ class TemperaturaCompose {
             Spacer(modifier = Modifier.padding(8.dp))
             temperaturasOutput()
         }
-
     }
 
     @Composable
@@ -201,5 +205,3 @@ class TemperaturaCompose {
             }
         }
     }
-
-}

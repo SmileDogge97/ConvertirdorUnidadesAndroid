@@ -23,138 +23,121 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.content.contentValuesOf
 import com.aristidevs.convertirdorunidadesandroid.R
 
-class Velocidad {
 
     @Composable
     @Preview(showBackground = true)
-    fun velocidadUI() {
-        Column(
-            modifier = Modifier.padding(7.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            TituloVelocidad()
-            VelocidadInput()
-            Spacer(modifier = Modifier.padding(8.dp))
-            VelocidadOutput()
-        }
+    fun masaUI() {
+        PesoCompose()
+    }
+
+@Composable
+fun PesoCompose(){
+    Column(
+        modifier = Modifier.padding(7.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        TituloPeso()
+        PesoInput()
+        Spacer(modifier = Modifier.padding(8.dp))
+        PesoOutput()
+    }
+}
+
+    @Composable
+    fun PesoOutput() {
+        RenglonGramo()
+        RenglonKilogramo()
+        RenglonLibra()
+        RenglonTonelada()
     }
 
     @Composable
-    fun VelocidadOutput(){
-        RenglonMetros()
-        RenglonKilometros()
-        RenglonPies()
-        RenglonMillas()
-        RenglonNudos()
-    }
-
-    @Composable
-    fun RenglonNudos(){
+    fun RenglonTonelada(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.padding(7.dp),
-            verticalAlignment = Alignment.CenterVertically
+            modifier = Modifier.Companion.padding(7.dp),
+            verticalAlignment = Alignment.Companion.CenterVertically
         ) {
             Text(
-                text = stringResource(R.string.velocidad_nudo),
+                text = stringResource(R.string.peso_tonelada),
                 modifier = Modifier.Companion.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
-                onValueChange = { text = it},
+                onValueChange = { text = it },
                 modifier = Modifier.Companion.weight(7F)
             )
         }
     }
 
     @Composable
-    fun RenglonMillas(){
+    fun RenglonLibra(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.padding(7.dp),
-            verticalAlignment = Alignment.CenterVertically
+            modifier = Modifier.Companion.padding(7.dp),
+            verticalAlignment = Alignment.Companion.CenterVertically
         ) {
             Text(
-                text = stringResource(R.string.velocidad_mi_h),
+                text = stringResource(R.string.peso_libra),
                 modifier = Modifier.Companion.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
-                onValueChange = { text = it},
+                onValueChange = { text = it },
                 modifier = Modifier.Companion.weight(7F)
             )
         }
     }
 
     @Composable
-    fun RenglonPies(){
+    fun RenglonKilogramo(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.padding(7.dp),
-            verticalAlignment = Alignment.CenterVertically
+            modifier = Modifier.Companion.padding(7.dp),
+            verticalAlignment = Alignment.Companion.CenterVertically
         ) {
             Text(
-                text = stringResource(R.string.velocidad_ft_s),
+                text = stringResource(R.string.peso_kilogramo),
                 modifier = Modifier.Companion.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
-                onValueChange = { text = it},
+                onValueChange = { text = it },
                 modifier = Modifier.Companion.weight(7F)
             )
         }
     }
 
     @Composable
-    fun RenglonKilometros(){
+    fun RenglonGramo(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.padding(7.dp),
-            verticalAlignment = Alignment.CenterVertically
+            modifier = Modifier.Companion.padding(7.dp),
+            verticalAlignment = Alignment.Companion.CenterVertically
         ) {
             Text(
-                text = stringResource(R.string.velocidad_km_h),
+                text = stringResource(R.string.peso_gramo),
                 modifier = Modifier.Companion.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
-                onValueChange = { text = it},
+                onValueChange = { text = it },
                 modifier = Modifier.Companion.weight(7F)
             )
         }
     }
 
     @Composable
-    fun RenglonMetros(){
-        var text by remember { mutableStateOf("") }
-        Row(
-            modifier = Modifier.padding(7.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(
-                text = stringResource(R.string.velocidad_m_s),
-                modifier = Modifier.Companion.weight(2F)
-            )
-            TextField(
-                value = stringResource(R.string.placeholder_cantidad),
-                readOnly = true,
-                onValueChange = { text = it},
-                modifier = Modifier.Companion.weight(7F)
-            )
-        }
-    }
-
-    @Composable
-    fun VelocidadInput() {
+    fun PesoInput(){
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
@@ -164,20 +147,20 @@ class Velocidad {
             TextField(
                 value = text,
                 onValueChange = { text = it },
-                placeholder = { Text(text = stringResource(R.string.placeholder_velocidad)) }
+                placeholder = { Text(text = stringResource(R.string.placeholder_peso)) }
             )
-            menuVelocidad()
+            menuPeso()
         }
     }
 
     @Composable
-    fun menuVelocidad() {
+    fun menuPeso() {
         var expanded by remember { mutableStateOf(false) }
         Box() {
-            IconButton(onClick = { expanded = !expanded }) {
+            IconButton(onClick = {expanded = !expanded }) {
                 Icon(
                     imageVector = Icons.Default.MoreVert,
-                    contentDescription = stringResource(R.string.menu_velocidad)
+                    contentDescription = stringResource(R.string.menu_peso)
                 )
             }
             DropdownMenu(
@@ -185,40 +168,35 @@ class Velocidad {
                 onDismissRequest = { expanded = false }
             ) {
                 DropdownMenuItem(
-                    text = { Text(stringResource(R.string.velocidad_m_s)) },
+                    text = { Text(stringResource(R.string.peso_gramo)) },
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(stringResource(R.string.velocidad_km_h)) },
+                    text = { Text(stringResource(R.string.peso_kilogramo)) },
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(stringResource(R.string.velocidad_ft_s)) },
-                    onClick = { }
+                    text = { Text(stringResource(R.string.peso_libra)) },
+                    onClick = {  }
                 )
                 DropdownMenuItem(
-                    text = { Text(stringResource(R.string.velocidad_mi_h)) },
-                    onClick = { }
-                )
-                DropdownMenuItem(
-                    text = { Text(stringResource(R.string.velocidad_nudo)) },
-                    onClick = { }
+                    text = { Text(stringResource(R.string.peso_tonelada)) },
+                    onClick = {  }
                 )
             }
         }
     }
 
     @Composable
-    fun TituloVelocidad() {
+    fun TituloPeso() {
         Row(
             modifier = Modifier.Companion.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
-        ) {
+        ){
             Text(
-                text = stringResource(R.string.titulo_velocidad),
+                text = stringResource(R.string.titulo_peso),
                 modifier = Modifier.Companion.padding(all = 15.dp),
-                textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                textAlign = TextAlign.Companion.Center
             )
         }
     }
-}

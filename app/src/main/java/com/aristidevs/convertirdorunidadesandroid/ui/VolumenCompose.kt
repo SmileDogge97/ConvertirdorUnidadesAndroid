@@ -28,21 +28,25 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.aristidevs.convertirdorunidadesandroid.R
 
-class VolumenCompose {
 
     @Composable
     @Preview(
         showBackground = true
     )
     fun volumenUI() {
-        Column(modifier = Modifier.padding(7.dp),
-            horizontalAlignment = Alignment.CenterHorizontally) {
-            TituloVolumen()
-            VolumenInput()
-            Spacer(modifier = Modifier.padding(8.dp))
-            VolumenOutput()
-        }
+        VolumenCompose()
     }
+
+@Composable
+fun VolumenCompose(){
+    Column(modifier = Modifier.padding(7.dp),
+        horizontalAlignment = Alignment.CenterHorizontally) {
+        TituloVolumen()
+        VolumenInput()
+        Spacer(modifier = Modifier.padding(8.dp))
+        VolumenOutput()
+    }
+}
 
     @Composable
     fun VolumenOutput() {
@@ -251,4 +255,3 @@ class VolumenCompose {
             )
         }
     }
-}

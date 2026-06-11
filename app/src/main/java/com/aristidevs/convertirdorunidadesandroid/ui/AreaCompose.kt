@@ -28,12 +28,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.aristidevs.convertirdorunidadesandroid.R
 
-class AreaCompose {
     @Composable
     @Preview(
         showBackground = true
     )
     fun areaUI() {
+        AreaCompose()
+    }
+
+    @Composable
+    fun AreaCompose(){
         Column(modifier = Modifier.padding(7.dp),
             horizontalAlignment = Alignment.CenterHorizontally) {
             TituloArea()
@@ -275,4 +279,3 @@ class AreaCompose {
             )
         }
     }
-}
