@@ -32,6 +32,7 @@ import com.aristidevs.convertirdorunidadesandroid.R
 
 
     @Composable
+    @Preview(showBackground = true)
     fun longitudUI() {
         LongitudCompose()
     }
