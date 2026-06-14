@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.DropdownMenu
@@ -52,6 +54,11 @@ import com.aristidevs.convertirdorunidadesandroid.R
 
     @Composable
     fun LongitudOutput() {
+        Column(
+            modifier = Modifier
+                .verticalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
         RenglonMetro()
         RenglonKilometro()
         RenglonCentimetro()
@@ -61,6 +68,7 @@ import com.aristidevs.convertirdorunidadesandroid.R
         RenglonMilla()
         RenglonMillaNautica()
         RenglonAnosLuz()
+        }
     }
 
     @Composable
