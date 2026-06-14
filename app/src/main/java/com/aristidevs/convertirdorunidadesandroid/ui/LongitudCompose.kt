@@ -248,6 +248,7 @@ import com.aristidevs.convertirdorunidadesandroid.R
     fun LongitudInput(){
         Row(
             modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center
         ) {
             var text by remember { mutableStateOf("") }
             TextField(
