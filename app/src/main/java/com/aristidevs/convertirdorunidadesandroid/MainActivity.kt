@@ -152,6 +152,14 @@ fun MenuDesplegable(navController: NavHostController) {
     }
 }
 
+@Preview(
+    widthDp = 474,
+    heightDp = 997,
+    name = "Pantalla de mi Xiaomi Redmi note 8",
+    uiMode = Configuration.UI_MODE_NIGHT_NO or Configuration.UI_MODE_TYPE_NORMAL,
+    wallpaper = Wallpapers.NONE,
+    showSystemUi = true
+)
 @Preview(showBackground = true,
     device = "spec:parent=pixel_9", name = "Pixel 9",
     uiMode = Configuration.UI_MODE_NIGHT_NO or Configuration.UI_MODE_TYPE_NORMAL,
