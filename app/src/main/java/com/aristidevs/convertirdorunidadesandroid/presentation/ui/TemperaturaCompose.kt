@@ -7,10 +7,17 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.state.Temperatura
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.DropdownMenu
@@ -115,90 +122,61 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.TemperaturaVie
 
     @Composable
     fun temperaturasOutput(state: TemperaturaUiState) {
-        renglonCelsius(state.salidaCelsius.toString())
-        renglonFahrenheit(state.salidaFarenheit.toString())
-        renglonKelvin(state.salidaKelvin.toString())
-        renglonRankine(state.salidaRankine.toString())
-    }
-
-    @Composable
-    private fun renglonCelsius(valor: String) {
         Row(
-            modifier = Modifier.padding(7.dp),
-            verticalAlignment = Alignment.CenterVertically
+            modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Min)
         ) {
-
-            Text(
-                text = stringResource(R.string.temperatura_celsius),
-                modifier = Modifier.weight(2F)
-            )
-            TextField(
-                value = valor,
-                readOnly = true,
-                onValueChange = { },
-                modifier = Modifier.weight(8F)
-            )
+            Column(
+                modifier = Modifier.padding(end= 7.dp).fillMaxHeight()
+            ) {
+                val labelModifier = Modifier.weight(1f).wrapContentHeight(Alignment.CenterVertically).padding(top= 3.5.dp, bottom = 3.5.dp)
+                Text(
+                    text = stringResource(R.string.temperatura_celsius),
+                    modifier = labelModifier
+                )
+                Text(
+                    text = stringResource(R.string.temperatura_farenheit),
+                    modifier = labelModifier
+                )
+                Text(
+                    text = stringResource(R.string.temperatura_kelvin),
+                    modifier = labelModifier
+                )
+                Text(
+                    text = stringResource(R.string.temperatura_rankine),
+                    modifier = labelModifier
+                )
+            }
+            Column(
+                modifier = Modifier.wrapContentHeight().fillMaxWidth()
+            ) {
+                val fieldModifier = Modifier.fillMaxWidth().padding(top= 3.5.dp, bottom = 3.5.dp)
+                TextField(
+                    value = state.salidaCelsius.toString(),
+                    readOnly = true,
+                    onValueChange = { },
+                    modifier = fieldModifier
+                )
+                TextField(
+                    value = state.salidaFarenheit.toString(),
+                    readOnly = true,
+                    onValueChange = { },
+                    modifier = fieldModifier
+                )
+                TextField(
+                    value = state.salidaKelvin.toString(),
+                    onValueChange = { },
+                    readOnly = true,
+                    modifier = fieldModifier
+                )
+                TextField(
+                    value = state.salidaRankine.toString(),
+                    onValueChange = { },
+                    readOnly = true,
+                    modifier = fieldModifier
+                )
+            }
         }
-    }
 
-    @Composable
-    private fun renglonFahrenheit(valor: String) {
-        Row(
-            modifier = Modifier.padding(7.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-
-            Text(
-                text = stringResource(R.string.temperatura_farenheit),
-                modifier = Modifier.weight(2F)
-            )
-            TextField(
-                value = valor,
-                readOnly = true,
-                onValueChange = { },
-                modifier = Modifier.weight(8F)
-            )
-        }
-    }
-
-    @Composable
-    private fun renglonKelvin(valor: String) {
-        Row(
-            modifier = Modifier.padding(7.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-
-            Text(
-                text = stringResource(R.string.temperatura_kelvin),
-                modifier = Modifier.weight(2F)
-            )
-            TextField(
-                value = valor,
-                onValueChange = { },
-                readOnly = true,
-                modifier = Modifier.weight(8F)
-            )
-        }
-    }
-
-    @Composable
-    private fun renglonRankine(valor: String) {
-        Row(
-            modifier = Modifier.padding(7.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-
-            Text(
-                text = stringResource(R.string.temperatura_rankine),
-                modifier = Modifier.weight(2F)
-            )
-            TextField(
-                value = valor,
-                onValueChange = { },
-                readOnly = true,
-                modifier = Modifier.weight(8F)
-            )
-        }
     }
 
     @Composable
