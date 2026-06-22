@@ -13,15 +13,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -46,11 +41,11 @@ import androidx.navigation.compose.rememberNavController
 import com.aristidevs.convertirdorunidadesandroid.UI.AreaCompose
 import com.aristidevs.convertirdorunidadesandroid.UI.TemperaturaCompose
 import com.aristidevs.convertirdorunidadesandroid.UI.VolumenCompose
-import com.aristidevs.convertirdorunidadesandroid.ui.LongitudCompose
-import com.aristidevs.convertirdorunidadesandroid.ui.PesoCompose
-import com.aristidevs.convertirdorunidadesandroid.ui.TiempoCompose
-import com.aristidevs.convertirdorunidadesandroid.ui.VelocidadCompose
-import com.aristidevs.convertirdorunidadesandroid.ui.theme.ConvertirdorUnidadesAndroidTheme
+import com.aristidevs.convertirdorunidadesandroid.presentation.ui.LongitudCompose
+import com.aristidevs.convertirdorunidadesandroid.presentation.ui.PesoCompose
+import com.aristidevs.convertirdorunidadesandroid.presentation.ui.TiempoCompose
+import com.aristidevs.convertirdorunidadesandroid.presentation.ui.VelocidadCompose
+import com.aristidevs.convertirdorunidadesandroid.presentation.ui.theme.ConvertirdorUnidadesAndroidTheme
 import kotlinx.serialization.Serializable
 
 // 1. Las rutas deben ser objetos globales y serializables para Type-Safe Navigation

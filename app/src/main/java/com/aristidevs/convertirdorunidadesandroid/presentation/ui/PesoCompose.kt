@@ -1,4 +1,4 @@
-package com.aristidevs.convertirdorunidadesandroid.ui
+package com.aristidevs.convertirdorunidadesandroid.presentation.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -60,18 +60,18 @@ fun PesoCompose(){
     fun RenglonTonelada(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = stringResource(R.string.peso_tonelada),
-                modifier = Modifier.Companion.weight(2F)
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                modifier = Modifier.weight(7F)
             )
         }
     }
@@ -80,18 +80,18 @@ fun PesoCompose(){
     fun RenglonLibra(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = stringResource(R.string.peso_libra),
-                modifier = Modifier.Companion.weight(2F)
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                modifier = Modifier.weight(7F)
             )
         }
     }
@@ -100,18 +100,18 @@ fun PesoCompose(){
     fun RenglonKilogramo(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = stringResource(R.string.peso_kilogramo),
-                modifier = Modifier.Companion.weight(2F)
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                modifier = Modifier.weight(7F)
             )
         }
     }
@@ -120,18 +120,18 @@ fun PesoCompose(){
     fun RenglonGramo(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
                 text = stringResource(R.string.peso_gramo),
-                modifier = Modifier.Companion.weight(2F)
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                modifier = Modifier.weight(7F)
             )
         }
     }
@@ -190,13 +190,13 @@ fun PesoCompose(){
     @Composable
     fun TituloPeso() {
         Row(
-            modifier = Modifier.Companion.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ){
             Text(
                 text = stringResource(R.string.titulo_peso),
-                modifier = Modifier.Companion.padding(all = 15.dp),
-                textAlign = TextAlign.Companion.Center
+                modifier = Modifier.padding(all = 15.dp),
+                textAlign = TextAlign.Center
             )
         }
     }

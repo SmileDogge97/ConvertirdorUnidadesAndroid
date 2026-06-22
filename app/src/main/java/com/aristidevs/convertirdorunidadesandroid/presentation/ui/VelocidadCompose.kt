@@ -1,4 +1,4 @@
-package com.aristidevs.convertirdorunidadesandroid.ui
+package com.aristidevs.convertirdorunidadesandroid.presentation.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -28,142 +28,135 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.aristidevs.convertirdorunidadesandroid.R
 
-
     @Composable
     @Preview(showBackground = true)
-    fun tiempoUI() {
-        TiempoCompose()
+    fun velocidadUI() {
+        VelocidadCompose()
     }
 
     @Composable
-    fun TiempoCompose() {
+    fun VelocidadCompose(){
         Column(
             modifier = Modifier.padding(7.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            TituloTiempo()
-            TiempoInput()
+            TituloVelocidad()
+            VelocidadInput()
             Spacer(modifier = Modifier.padding(8.dp))
-            TiempoOutput()
+            VelocidadOutput()
         }
     }
-
     @Composable
-    fun TiempoOutput() {
-        RenglonSegundo()
-        RenglonMinuto()
-        RenglonHora()
-        RenglonDia()
-        RenglonAnio()
+    fun VelocidadOutput(){
+        RenglonMetros()
+        RenglonKilometros()
+        RenglonPies()
+        RenglonMillas()
+        RenglonNudos()
     }
 
     @Composable
-    fun RenglonAnio() {
+    fun RenglonNudos(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-
             Text(
-                text = stringResource(R.string.tiempo_anio),
-                modifier = Modifier.Companion.weight(2F)
+                text = stringResource(R.string.velocidad_nudo),
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
-                onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                onValueChange = { text = it},
+                modifier = Modifier.weight(7F)
             )
         }
     }
 
     @Composable
-    fun RenglonDia() {
+    fun RenglonMillas(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-
             Text(
-                text = stringResource(R.string.tiempo_dia),
-                modifier = Modifier.Companion.weight(2F)
+                text = stringResource(R.string.velocidad_mi_h),
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
-                onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                onValueChange = { text = it},
+                modifier = Modifier.weight(7F)
             )
         }
     }
 
     @Composable
-    fun RenglonHora() {
+    fun RenglonPies(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-
             Text(
-                text = stringResource(R.string.tiempo_hora),
-                modifier = Modifier.Companion.weight(2F)
+                text = stringResource(R.string.velocidad_ft_s),
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
-                onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                onValueChange = { text = it},
+                modifier = Modifier.weight(7F)
             )
         }
     }
 
     @Composable
-    fun RenglonMinuto() {
+    fun RenglonKilometros(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-
             Text(
-                text = stringResource(R.string.tiempo_minuto),
-                modifier = Modifier.Companion.weight(2F)
+                text = stringResource(R.string.velocidad_km_h),
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
-                onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                onValueChange = { text = it},
+                modifier = Modifier.weight(7F)
             )
         }
     }
 
     @Composable
-    fun RenglonSegundo() {
+    fun RenglonMetros(){
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-
             Text(
-                text = stringResource(R.string.tiempo_segundo),
-                modifier = Modifier.Companion.weight(2F)
+                text = stringResource(R.string.velocidad_m_s),
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
-                onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                onValueChange = { text = it},
+                modifier = Modifier.weight(7F)
             )
         }
     }
 
     @Composable
-    fun TiempoInput() {
+    fun VelocidadInput() {
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
@@ -173,20 +166,20 @@ import com.aristidevs.convertirdorunidadesandroid.R
             TextField(
                 value = text,
                 onValueChange = { text = it },
-                placeholder = { Text(text = stringResource(R.string.placeholder_area)) }
+                placeholder = { Text(text = stringResource(R.string.placeholder_velocidad)) }
             )
-            menuTiempo()
+            menuVelocidad()
         }
     }
 
     @Composable
-    private fun menuTiempo() {
+    fun menuVelocidad() {
         var expanded by remember { mutableStateOf(false) }
         Box() {
             IconButton(onClick = { expanded = !expanded }) {
                 Icon(
                     imageVector = Icons.Default.MoreVert,
-                    contentDescription = stringResource(R.string.menu_tiempo)
+                    contentDescription = stringResource(R.string.menu_velocidad)
                 )
             }
             DropdownMenu(
@@ -194,23 +187,23 @@ import com.aristidevs.convertirdorunidadesandroid.R
                 onDismissRequest = { expanded = false }
             ) {
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.tiempo_segundo)) },
+                    text = { Text(stringResource(R.string.velocidad_m_s)) },
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.tiempo_minuto)) },
+                    text = { Text(stringResource(R.string.velocidad_km_h)) },
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.tiempo_hora)) },
+                    text = { Text(stringResource(R.string.velocidad_ft_s)) },
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.tiempo_dia)) },
+                    text = { Text(stringResource(R.string.velocidad_mi_h)) },
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.tiempo_anio)) },
+                    text = { Text(stringResource(R.string.velocidad_nudo)) },
                     onClick = { }
                 )
             }
@@ -218,15 +211,15 @@ import com.aristidevs.convertirdorunidadesandroid.R
     }
 
     @Composable
-    fun TituloTiempo() {
+    fun TituloVelocidad() {
         Row(
-            modifier = Modifier.Companion.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
-                text = stringResource(R.string.titulo_tiempo),
-                modifier = Modifier.Companion.padding(all = 15.dp),
-                textAlign = TextAlign.Companion.Center
+                text = stringResource(R.string.titulo_velocidad),
+                modifier = Modifier.padding(all = 15.dp),
+                textAlign = TextAlign.Center
             )
         }
     }

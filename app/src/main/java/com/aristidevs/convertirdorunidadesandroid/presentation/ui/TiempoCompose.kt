@@ -1,4 +1,4 @@
-package com.aristidevs.convertirdorunidadesandroid.UI
+package com.aristidevs.convertirdorunidadesandroid.presentation.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -30,163 +30,142 @@ import com.aristidevs.convertirdorunidadesandroid.R
 
 
     @Composable
-    @Preview(
-        showBackground = true
-    )
-    fun volumenUI() {
-        VolumenCompose()
-    }
-
-@Composable
-fun VolumenCompose(){
-    Column(modifier = Modifier.padding(7.dp),
-        horizontalAlignment = Alignment.CenterHorizontally) {
-        TituloVolumen()
-        VolumenInput()
-        Spacer(modifier = Modifier.padding(8.dp))
-        VolumenOutput()
-    }
-}
-
-    @Composable
-    fun VolumenOutput() {
-        RenglonCentimetro()
-        RenglonMetro()
-        RenglonPie()
-        RenglonPulgada()
-        RenglonLitro()
-        RenglonGalon()
+    @Preview(showBackground = true)
+    fun tiempoUI() {
+        TiempoCompose()
     }
 
     @Composable
-    fun RenglonGalon() {
+    fun TiempoCompose() {
+        Column(
+            modifier = Modifier.padding(7.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            TituloTiempo()
+            TiempoInput()
+            Spacer(modifier = Modifier.padding(8.dp))
+            TiempoOutput()
+        }
+    }
+
+    @Composable
+    fun TiempoOutput() {
+        RenglonSegundo()
+        RenglonMinuto()
+        RenglonHora()
+        RenglonDia()
+        RenglonAnio()
+    }
+
+    @Composable
+    fun RenglonAnio() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
 
             Text(
-                text = stringResource(R.string.volumen_galon),
-                modifier = Modifier.Companion.weight(2F)
+                text = stringResource(R.string.tiempo_anio),
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                modifier = Modifier.weight(7F)
             )
         }
     }
 
     @Composable
-    fun RenglonLitro() {
+    fun RenglonDia() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
 
             Text(
-                text = stringResource(R.string.volumen_galon),
-                modifier = Modifier.Companion.weight(2F)
+                text = stringResource(R.string.tiempo_dia),
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                modifier = Modifier.weight(7F)
             )
         }
     }
 
     @Composable
-    fun RenglonPulgada() {
+    fun RenglonHora() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
 
             Text(
-                text = stringResource(R.string.volumen_pulgada),
-                modifier = Modifier.Companion.weight(2F)
+                text = stringResource(R.string.tiempo_hora),
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                modifier = Modifier.weight(7F)
             )
         }
     }
 
     @Composable
-    fun RenglonPie() {
+    fun RenglonMinuto() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
 
             Text(
-                text = stringResource(R.string.volumen_pie),
-                modifier = Modifier.Companion.weight(2F)
+                text = stringResource(R.string.tiempo_minuto),
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                modifier = Modifier.weight(7F)
             )
         }
     }
 
     @Composable
-    fun RenglonMetro() {
+    fun RenglonSegundo() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
 
             Text(
-                text = stringResource(R.string.volumen_metro),
-                modifier = Modifier.Companion.weight(2F)
+                text = stringResource(R.string.tiempo_segundo),
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                modifier = Modifier.weight(7F)
             )
         }
     }
 
     @Composable
-    fun RenglonCentimetro() {
-        var text by remember { mutableStateOf("") }
+    fun TiempoInput() {
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
-        ) {
-
-            Text(
-                text = stringResource(R.string.volumen_centimetro),
-                modifier = Modifier.Companion.weight(2F)
-            )
-            TextField(
-                value = stringResource(R.string.placeholder_cantidad),
-                readOnly = true,
-                onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
-            )
-        }
-    }
-
-    @Composable
-    fun VolumenInput() {
-        Row(modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ) {
@@ -196,18 +175,18 @@ fun VolumenCompose(){
                 onValueChange = { text = it },
                 placeholder = { Text(text = stringResource(R.string.placeholder_area)) }
             )
-            menuVolumen()
+            menuTiempo()
         }
     }
 
     @Composable
-    private fun menuVolumen() {
+    private fun menuTiempo() {
         var expanded by remember { mutableStateOf(false) }
         Box() {
             IconButton(onClick = { expanded = !expanded }) {
                 Icon(
                     imageVector = Icons.Default.MoreVert,
-                    contentDescription = stringResource(R.string.menu_volumen)
+                    contentDescription = stringResource(R.string.menu_tiempo)
                 )
             }
             DropdownMenu(
@@ -215,27 +194,23 @@ fun VolumenCompose(){
                 onDismissRequest = { expanded = false }
             ) {
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.volumen_centimetro)) },
+                    text = { Text(text = stringResource(R.string.tiempo_segundo)) },
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.volumen_metro)) },
+                    text = { Text(text = stringResource(R.string.tiempo_minuto)) },
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.volumen_pie)) },
+                    text = { Text(text = stringResource(R.string.tiempo_hora)) },
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.volumen_pulgada)) },
+                    text = { Text(text = stringResource(R.string.tiempo_dia)) },
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.volumen_litro)) },
-                    onClick = { }
-                )
-                DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.volumen_galon)) },
+                    text = { Text(text = stringResource(R.string.tiempo_anio)) },
                     onClick = { }
                 )
             }
@@ -243,15 +218,15 @@ fun VolumenCompose(){
     }
 
     @Composable
-    fun TituloVolumen() {
+    fun TituloTiempo() {
         Row(
-            modifier = Modifier.Companion.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
-                text = stringResource(R.string.titulo_volumen),
-                modifier = Modifier.Companion.padding(all = 15.dp),
-                textAlign = TextAlign.Companion.Center
+                text = stringResource(R.string.titulo_tiempo),
+                modifier = Modifier.padding(all = 15.dp),
+                textAlign = TextAlign.Center
             )
         }
     }

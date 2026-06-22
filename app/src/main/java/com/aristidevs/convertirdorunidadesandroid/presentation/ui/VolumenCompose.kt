@@ -28,185 +28,164 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.aristidevs.convertirdorunidadesandroid.R
 
+
     @Composable
     @Preview(
         showBackground = true
     )
-    fun areaUI() {
-        AreaCompose()
+    fun volumenUI() {
+        VolumenCompose()
+    }
+
+@Composable
+fun VolumenCompose(){
+    Column(modifier = Modifier.padding(7.dp),
+        horizontalAlignment = Alignment.CenterHorizontally) {
+        TituloVolumen()
+        VolumenInput()
+        Spacer(modifier = Modifier.padding(8.dp))
+        VolumenOutput()
+    }
+}
+
+    @Composable
+    fun VolumenOutput() {
+        RenglonCentimetro()
+        RenglonMetro()
+        RenglonPie()
+        RenglonPulgada()
+        RenglonLitro()
+        RenglonGalon()
     }
 
     @Composable
-    fun AreaCompose(){
-        Column(modifier = Modifier.padding(7.dp),
-            horizontalAlignment = Alignment.CenterHorizontally) {
-            TituloArea()
-            AreaInput()
-            Spacer(modifier = Modifier.padding(8.dp))
-            AreaOutput()
-        }
-    }
-
-    @Composable
-    fun AreaOutput() {
-        renglonMetro()
-        renglonHectarea()
-        renglonCentimetro()
-        renglonPulgada()
-        renglonPie()
-        renglonYarda()
-        renglonMilla()
-    }
-
-    @Composable
-    private fun renglonMilla() {
+    fun RenglonGalon() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
 
             Text(
-                text = stringResource(R.string.area_milla),
-                modifier = Modifier.Companion.weight(2F)
+                text = stringResource(R.string.volumen_galon),
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                modifier = Modifier.weight(7F)
             )
         }
     }
 
     @Composable
-    private fun renglonYarda() {
+    fun RenglonLitro() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
 
             Text(
-                text = stringResource(R.string.area_yarda),
-                modifier = Modifier.Companion.weight(2F)
+                text = stringResource(R.string.volumen_galon),
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                modifier = Modifier.weight(7F)
             )
         }
     }
 
     @Composable
-    private fun renglonPie() {
+    fun RenglonPulgada() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
 
             Text(
-                text = stringResource(R.string.area_pie),
-                modifier = Modifier.Companion.weight(2F)
+                text = stringResource(R.string.volumen_pulgada),
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                modifier = Modifier.weight(7F)
             )
         }
     }
 
     @Composable
-    private fun renglonPulgada() {
+    fun RenglonPie() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
 
             Text(
-                text = stringResource(R.string.area_pulgada),
-                modifier = Modifier.Companion.weight(2F)
+                text = stringResource(R.string.volumen_pie),
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                modifier = Modifier.weight(7F)
             )
         }
     }
 
     @Composable
-    private fun renglonCentimetro() {
+    fun RenglonMetro() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
 
             Text(
-                text = stringResource(R.string.area_centimetro),
-                modifier = Modifier.Companion.weight(2F)
+                text = stringResource(R.string.volumen_metro),
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                modifier = Modifier.weight(7F)
             )
         }
     }
 
     @Composable
-    private fun renglonHectarea() {
+    fun RenglonCentimetro() {
         var text by remember { mutableStateOf("") }
         Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
+            modifier = Modifier.padding(7.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
 
             Text(
-                text = stringResource(R.string.area_hectarea),
-                modifier = Modifier.Companion.weight(2F)
+                text = stringResource(R.string.volumen_centimetro),
+                modifier = Modifier.weight(2F)
             )
             TextField(
                 value = stringResource(R.string.placeholder_cantidad),
                 readOnly = true,
                 onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
+                modifier = Modifier.weight(7F)
             )
         }
     }
 
     @Composable
-    private fun renglonMetro() {
-        var text by remember { mutableStateOf("") }
-        Row(
-            modifier = Modifier.Companion.padding(7.dp),
-            verticalAlignment = Alignment.Companion.CenterVertically
-        ) {
-
-            Text(
-                text = stringResource(R.string.area_metro),
-                modifier = Modifier.Companion.weight(2F)
-            )
-            TextField(
-                value = stringResource(R.string.placeholder_cantidad),
-                readOnly = true,
-                onValueChange = { text = it },
-                modifier = Modifier.Companion.weight(7F)
-            )
-        }
-    }
-
-    @Composable
-    fun AreaInput() {
+    fun VolumenInput() {
         Row(modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
@@ -217,17 +196,18 @@ import com.aristidevs.convertirdorunidadesandroid.R
                 onValueChange = { text = it },
                 placeholder = { Text(text = stringResource(R.string.placeholder_area)) }
             )
-            menuArea()
+            menuVolumen()
         }
     }
+
     @Composable
-    private fun menuArea() {
+    private fun menuVolumen() {
         var expanded by remember { mutableStateOf(false) }
         Box() {
             IconButton(onClick = { expanded = !expanded }) {
                 Icon(
                     imageVector = Icons.Default.MoreVert,
-                    contentDescription = stringResource(R.string.menu_area)
+                    contentDescription = stringResource(R.string.menu_volumen)
                 )
             }
             DropdownMenu(
@@ -235,31 +215,27 @@ import com.aristidevs.convertirdorunidadesandroid.R
                 onDismissRequest = { expanded = false }
             ) {
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.area_metro)) },
+                    text = { Text(text = stringResource(R.string.volumen_centimetro)) },
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.area_hectarea)) },
+                    text = { Text(text = stringResource(R.string.volumen_metro)) },
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.area_centimetro)) },
+                    text = { Text(text = stringResource(R.string.volumen_pie)) },
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.area_pulgada)) },
+                    text = { Text(text = stringResource(R.string.volumen_pulgada)) },
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.area_pie)) },
+                    text = { Text(text = stringResource(R.string.volumen_litro)) },
                     onClick = { }
                 )
                 DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.area_yarda)) },
-                    onClick = { }
-                )
-                DropdownMenuItem(
-                    text = { Text(text = stringResource(R.string.area_milla)) },
+                    text = { Text(text = stringResource(R.string.volumen_galon)) },
                     onClick = { }
                 )
             }
@@ -267,15 +243,15 @@ import com.aristidevs.convertirdorunidadesandroid.R
     }
 
     @Composable
-    fun TituloArea() {
+    fun TituloVolumen() {
         Row(
-            modifier = Modifier.Companion.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
-                text = stringResource(R.string.titulo_area),
-                modifier = Modifier.Companion.padding(7.dp),
-                textAlign = TextAlign.Companion.Center
+                text = stringResource(R.string.titulo_volumen),
+                modifier = Modifier.padding(all = 15.dp),
+                textAlign = TextAlign.Center
             )
         }
     }
