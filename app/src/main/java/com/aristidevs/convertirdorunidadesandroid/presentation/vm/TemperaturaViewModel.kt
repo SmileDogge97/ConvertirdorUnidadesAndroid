@@ -2,7 +2,7 @@ package com.aristidevs.convertirdorunidadesandroid.presentation.vm
 
 import androidx.lifecycle.ViewModel
 import com.aristidevs.convertirdorunidadesandroid.domain.model.UnidadTemperatura
-import com.aristidevs.convertirdorunidadesandroid.presentation.state.TemperaturaUiState
+import com.aristidevs.convertirdorunidadesandroid.presentation.state.TemperaturaIUEstado
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -11,31 +11,31 @@ import kotlinx.coroutines.flow.update
 import com.aristidevs.convertirdorunidadesandroid.transformador.Temperatura
 
 class TemperaturaViewModel : ViewModel() {
-    private val _iuValorState = MutableStateFlow(TemperaturaUiState())
-    val uiState: StateFlow<TemperaturaUiState> = _iuValorState.asStateFlow()
+    private val _iuValorEstado = MutableStateFlow(TemperaturaIUEstado())
+    val iuEstado: StateFlow<TemperaturaIUEstado> = _iuValorEstado.asStateFlow()
 
     private val transformador = Temperatura()
 
-    fun onValorChange(nuevoValor: String) {
-        _iuValorState.update { it.copy(valorConvertible = nuevoValor.toDoubleOrNull()) }
+    fun CambioValor(nuevoValor: String) {
+        _iuValorEstado.update { it.copy(valorConvertible = nuevoValor.toDoubleOrNull()) }
         convertirTemperatura()
     }
 
-    fun onUnidadChange(nuevaUnidad: UnidadTemperatura) {
-        _iuValorState.update { it.copy(unidadDeConversion = nuevaUnidad) }
+    fun CambioUnidad(nuevaUnidad: UnidadTemperatura) {
+        _iuValorEstado.update { it.copy(unidadDeConversion = nuevaUnidad) }
         convertirTemperatura()
     }
 
     private fun convertirTemperatura() {
-        val valor = _iuValorState.value.valorConvertible ?: 0.0
-        val unidad = _iuValorState.value.unidadDeConversion
+        val valor = _iuValorEstado.value.valorConvertible ?: 0.0
+        val unidad = _iuValorEstado.value.unidadDeConversion
 
         // Configuramos el transformador según la unidad seleccionada
         when (unidad) {
             UnidadTemperatura.CELSIUS -> {
                 transformador.setCelsius(valor)
                 transformador.conversionCelsius()
-                _iuValorState.update { it.copy(
+                _iuValorEstado.update { it.copy(
                     salidaCelsius = valor,
                     salidaKelvin = transformador.ck(),
                     salidaFarenheit = transformador.cf(),
@@ -45,7 +45,7 @@ class TemperaturaViewModel : ViewModel() {
             UnidadTemperatura.FAHRENHEIT -> {
                 transformador.setFarenheit(valor)
                 transformador.conversionFarenheit()
-                _iuValorState.update { it.copy(
+                _iuValorEstado.update { it.copy(
                     salidaCelsius = transformador.fc(),
                     salidaKelvin = transformador.fk(),
                     salidaFarenheit = valor,
@@ -55,7 +55,7 @@ class TemperaturaViewModel : ViewModel() {
             UnidadTemperatura.KELVIN -> {
                 transformador.setKelvin(valor)
                 transformador.conversionKelvin()
-                _iuValorState.update { it.copy(
+                _iuValorEstado.update { it.copy(
                     salidaCelsius = transformador.kc(),
                     salidaKelvin = valor,
                     salidaFarenheit = transformador.kf(),
@@ -65,7 +65,7 @@ class TemperaturaViewModel : ViewModel() {
             UnidadTemperatura.RANKINE -> {
                 transformador.setRankine(valor)
                 transformador.conversionRankine()
-                _iuValorState.update { it.copy(
+                _iuValorEstado.update { it.copy(
                     salidaCelsius = transformador.rc(),
                     salidaKelvin = transformador.rk(),
                     salidaFarenheit = transformador.rf(),

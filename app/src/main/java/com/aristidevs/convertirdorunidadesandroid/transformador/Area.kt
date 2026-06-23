@@ -145,9 +145,9 @@ class Area {
         hm = hectarea * (10000 / 1)
         hcm = hectarea * (10000 / 1) * (10000 / 1)
         hin = hectarea * (10000 / 1) * ((39.37 / 1) * (39.37 / 1))
-        hft = hectarea * 107640
-        hyd = hectarea * 11960
-        hmi = (hectarea * 2.471) / 640
+        hft = hectarea * 107639.1041671
+        hyd = hectarea * 11959.9005
+        hmi = hectarea * 0.00386102
     }
 
     fun ccm() {
@@ -155,21 +155,21 @@ class Area {
         cmh = centimetro / 100000000
         cmin = centimetro * (0.155 / 1)
         cmft = centimetro * (0.00108 / 1)
-        cmyd = centimetro / (10000 * 0.8361)
+        cmyd = centimetro * 0.0001196
         cmmi = centimetro * 0.000000000038610
     }
 
     fun cin() {
         inm = pulgada * ((1 / 39.37) * (1 / 39.37))
         inh = pulgada / 15500031
-        incm = pulgada * (6.452 / 1)
+        incm = pulgada * 6.4516
         inft = pulgada / 144
         inyd = pulgada / 1296
         inmi = pulgada * 0.00000000024910
     }
 
     fun cft() {
-        ftm = pies * (1 / 10.76)
+        ftm = pies * 0.09290304
         fth = pies * (1 / 107639.104)
         ftcm = pies * ((30.48 / 1) * (30.48 / 1))
         ftin = pies * (144 / 1)
@@ -180,17 +180,17 @@ class Area {
     fun cyd() {
         ydm = yarda * (0.8361 / 1)
         ydh = yarda * (1 / 11959.9005)
-        ydcm = yarda / 0.00011960
+        ydcm = yarda * 8361.2736
         ydin = yarda * (1296 / 1)
         ydft = yarda * (9 / 1)
         ydmi = yarda / 3097600
     }
 
     fun cmi() {
-        mim = milla * (2589988.11 / 1)
-        mih = milla * (1 / 0.003861)
+        mim = milla * 2590000
+        mih = milla * 258.998811
         micm = (milla.toLong() * (25900000000L / 1)).toDouble()
-        miin = (milla.toLong() * (4014489600L / 1)).toDouble()
+        miin = milla * 4014500000
         mift = milla * ((5280 / 1) * (5280 / 1))
         miyd = milla * (3097600 / 1)
     }

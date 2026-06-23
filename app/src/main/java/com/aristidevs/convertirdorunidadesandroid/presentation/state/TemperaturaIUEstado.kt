@@ -1,10 +1,8 @@
 package com.aristidevs.convertirdorunidadesandroid.presentation.state
 
-import androidx.compose.ui.res.stringResource
-import androidx.core.R
 import com.aristidevs.convertirdorunidadesandroid.domain.model.UnidadTemperatura
 
-data class TemperaturaUiState(
+data class TemperaturaIUEstado(
     val valorConvertible: Double ?= 0.0,
     val unidadDeConversion: UnidadTemperatura ?= UnidadTemperatura.CELSIUS,
     val salidaCelsius: Double ?= 0.0,

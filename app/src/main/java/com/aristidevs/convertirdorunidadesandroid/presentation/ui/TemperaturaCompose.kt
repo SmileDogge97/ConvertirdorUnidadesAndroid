@@ -3,7 +3,7 @@ package com.aristidevs.convertirdorunidadesandroid.UI
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.ui.text.input.KeyboardType
 import com.aristidevs.convertirdorunidadesandroid.domain.model.UnidadTemperatura
-import com.aristidevs.convertirdorunidadesandroid.presentation.state.TemperaturaUiState
+import com.aristidevs.convertirdorunidadesandroid.presentation.state.TemperaturaIUEstado
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,13 +11,10 @@ import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.DropdownMenu
@@ -27,7 +24,6 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -54,14 +50,14 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.TemperaturaVie
 
     @Composable
     fun TemperaturaCompose(viewModel: TemperaturaViewModel = viewModel()){
-        val iuState by viewModel.uiState.collectAsStateWithLifecycle()
+        val iuState by viewModel.iuEstado.collectAsStateWithLifecycle()
         Column(modifier = Modifier.padding(7.dp),
             horizontalAlignment = Alignment.CenterHorizontally) {
             tituloTemperatura()
             temperaturaInput(
                 value = iuState.valorConvertible.toString(),
-                onValueChange = { viewModel.onValorChange(it) },
-                onUnidadChange = { viewModel.onUnidadChange(it) }
+                onValueChange = { viewModel.CambioValor(it) },
+                onUnidadChange = { viewModel.CambioUnidad(it) }
             )
             Spacer(modifier = Modifier.padding(8.dp))
             temperaturasOutput(iuState)
@@ -121,7 +117,7 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.TemperaturaVie
     }
 
     @Composable
-    fun temperaturasOutput(state: TemperaturaUiState) {
+    fun temperaturasOutput(state: TemperaturaIUEstado) {
         Row(
             modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Min)
         ) {
