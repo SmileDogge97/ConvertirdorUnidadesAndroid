@@ -137,7 +137,7 @@ class Volumen {
     fun clt() {
         ltcm = litro * 1000
         ltm = litro / 1000
-        ltft = litro / 28.3
+        ltft = litro / 28.3168466
         ltin = litro * 61.023
         ltg = litro / 3.785
     }
@@ -145,7 +145,7 @@ class Volumen {
     fun cg() {
         gcm = galon * 3785.41
         gm = galon * 0.0037
-        gft = galon * 0.134
+        gft = galon * 0.13368056
         gin = galon * 231
         glt = galon * 3.785
     }
