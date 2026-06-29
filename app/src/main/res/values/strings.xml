@@ -12,6 +12,7 @@
 
     <!-- Placeholders -->
     <string name="placeholder_temperatura">Ingresa la temperatura</string>
+    <string name="placeholder_tiempo">Ingresa el tiempo</string>
     <string name="placeholder_area">Ingresa el area</string>
     <string name="placeholder_volumen">Ingresa el volumen</string>
     <string name="placeholder_velocidad">Ingresa la velocidad</string>
