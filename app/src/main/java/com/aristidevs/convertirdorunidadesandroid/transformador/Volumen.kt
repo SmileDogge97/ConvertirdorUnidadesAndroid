@@ -103,9 +103,9 @@ class Volumen {
     }
 
     fun ccm() {
-        cmm = centimetro / 1000000
+        cmm = centimetro * 0.000001
         cmft = centimetro / 28316.8466
-        cmin = centimetro * 0.061024
+        cmin = centimetro * 0.06102374
         cmlt = centimetro / 1000
         cmg = centimetro / 3785.41
     }
@@ -127,10 +127,10 @@ class Volumen {
     }
 
     fun cin() {
-        incm = pulgada * 16.4
+        incm = pulgada * 16.387064
         inm = pulgada / 61000
         inft = pulgada / 1728
-        inlt = pulgada / 61.02
+        inlt = pulgada * 0.01638706
         ing = pulgada / 231
     }
 
@@ -139,7 +139,7 @@ class Volumen {
         ltm = litro / 1000
         ltft = litro / 28.3168466
         ltin = litro * 61.023
-        ltg = litro / 3.785
+        ltg = litro * 0.26417205
     }
 
     fun cg() {
