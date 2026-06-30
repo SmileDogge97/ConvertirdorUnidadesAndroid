@@ -90,24 +90,24 @@ class Velocidad {
     }
 
     fun cfts() {
-        fm = fts * (0.3048 / 1)
-        fk = fts * (1.10 / 1)
-        fmi = fts * (0.682 / 1)
-        fn = fts * (0.3048 / 1) * (1 / 0.5144)
+        fm = fts * 0.3048
+        fk = fts * 1.09728
+        fmi = fts * 0.68181818
+        fn = fts * 0.5924838
     }
 
     fun cmih() {
         mim = mih * (0.4470 / 1)
         mik = mih * (1.609 / 1)
         mif = mih * (1.466 / 1)
-        min = mih * (0.4470 / 1) * (1 / 0.51)
+        min = mih * 0.86897624
     }
 
     fun cnudo() {
         nm = nudo * (0.5144 / 1)
-        nk = nudo * (0.5144 / 1) * (1 / 0.2778)
-        nf = nudo * (0.5144 / 1) * (1 / 0.3048)
-        nmi = nudo * (0.5144 / 1) * (1 / 0.4470)
+        nk = nudo * 1.852
+        nf = nudo * 1.68780986
+        nmi = nudo * 1.15077945
     }
 
     fun ms(): Double {
