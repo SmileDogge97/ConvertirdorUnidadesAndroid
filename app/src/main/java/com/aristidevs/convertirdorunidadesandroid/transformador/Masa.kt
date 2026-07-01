@@ -63,18 +63,18 @@ class Masa {
 
     fun ckilogramo() {
         kgg = kilogramo * 1000
-        kglb = kilogramo / 0.4546
+        kglb = kilogramo * 2.20462262
         kgtn = kilogramo / 1000
     }
 
     fun clibra() {
         lbg = libra * 453.59
-        lbkg = libra * 0.4546
-        lbtn = (libra * 0.4546) / 1000
+        lbkg = libra * 0.45359237
+        lbtn = libra * 0.00045359
     }
 
     fun ctonelada() {
-        tng = tonelada * 1000 * 1000
+        tng = tonelada * 1000000
         tnkg = tonelada * 1000
         tnlb = tonelada * 2204.62262
     }

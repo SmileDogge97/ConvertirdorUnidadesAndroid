@@ -7,7 +7,7 @@
     <string name="titulo_volumen">Volumen</string>
     <string name="titulo_tiempo">Tiempo</string>
     <string name="titulo_velocidad">Velocidad</string>
-    <string name="titulo_peso">Peso</string>
+    <string name="titulo_peso">Masa</string>
     <string name="titulo_longitud">Longitud</string>
 
     <!-- Placeholders -->
