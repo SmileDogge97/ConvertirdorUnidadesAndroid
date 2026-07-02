@@ -235,7 +235,7 @@ class Longitud {
         cmyd = centimetro / 91.44
         cmmi = centimetro / 160934.4
         cmmina = centimetro / 185200
-        cmal = (centimetro.toLong() / (100 * 9461000000000000L)).toDouble()
+        cmal = centimetro * 0.0000000000000000010570
     }
 
     fun cPulgada() {
@@ -243,21 +243,21 @@ class Longitud {
         inkm = pulgada / 39370.07
         incm = pulgada * 2.54
         inft = pulgada / 12
-        inyd = pulgada / 36
+        inyd = pulgada * 0.02777778
         inmi = pulgada / 63360
         inmina = pulgada / 72913.38
         inal = pulgada.toLong() / (39.37 * 9461000000000000L)
     }
 
     fun cPie() {
-        ftm = pie / 0.3048
-        ftkm = pie / 3280.8399
+        ftm = pie * 0.3048
+        ftkm = pie * 0.0003048
         ftcm = pie / 0.032808
         ftin = pie * 12.000
         ftyd = pie / 3
         ftmi = pie / 5280
-        ftmina = pie / 6080
-        ftal = pie / (3.281 * 9461000000000000L)
+        ftmina = pie * 0.00016458
+        ftal = pie * 0.000000000000000032217
     }
 
     fun cYarda() {
@@ -267,7 +267,7 @@ class Longitud {
         ydin = yarda * 36
         ydft = yarda * 3
         ydmi = yarda / 1760
-        ydmina = yarda / 2025.37
+        ydmina = yarda * 0.00049374
         ydal = yarda * 0.000000000000000096652
     }
 
@@ -278,8 +278,8 @@ class Longitud {
         miin = milla * 63360
         mift = milla * 5280
         miyd = milla * 1760
-        mimina = milla / 1.152
-        mial = (milla * 1609.34) / 9461000000000000L
+        mimina = milla * 0.86897624
+        mial = milla * 0.00000000000017011
     }
 
     fun cMillaNautica() {
@@ -290,7 +290,7 @@ class Longitud {
         mnft = millaNautica * 6076.11549
         mnyd = millaNautica * 2025.37
         mnmi = millaNautica * 1.152
-        mnal = millaNautica * 0.000000000017422
+        mnal = millaNautica * 0.00000000000019576
     }
 
     fun cAñoluz() {
