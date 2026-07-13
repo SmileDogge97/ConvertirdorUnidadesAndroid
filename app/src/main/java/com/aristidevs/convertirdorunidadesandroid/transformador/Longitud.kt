@@ -224,7 +224,7 @@ class Longitud {
         kmyd = kilometro * 1093.6133
         kmmi = kilometro * 0.6214
         kmmina = kilometro / 1.852
-        kmal = kilometro.toLong() * 0.00000000000010570
+        kmal = kilometro * 0.00000000000010570
     }
 
     fun cCentimetro() {
@@ -295,7 +295,7 @@ class Longitud {
 
     fun cAñoluz() {
         alm = añoLuz / 0.00000000000000010570
-        alkm = añoLuz / 0.00000000000010570
+        alkm = añoLuz * 9460700000000
         alcm = añoLuz / 0.0000000000000000010570
         alin = añoLuz * 372470000000000000L
         alft = añoLuz * 31039000000000000L
