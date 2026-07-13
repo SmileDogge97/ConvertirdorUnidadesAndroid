@@ -72,9 +72,9 @@ class Temperatura {
     }
 
     fun conversionRankine() {
-        rc = (5 * (rankine - 491.67)) / 9
+        rc = (rankine - 491.67) / 1.79999999
         rf = (rankine - 491.67) + 32
-        rk = ((5 * (rankine - 491.67)) / 9) + 273.45
+        rk = rankine * 0.55555556
     }
 
     fun getc(): Double {
