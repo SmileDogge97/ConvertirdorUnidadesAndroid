@@ -138,7 +138,7 @@ class Area {
         min = metro * ((39.37 / 1) * (39.37 / 1))
         mft = metro * (10.76 / 1)
         myd = metro * (1 / 0.8364)
-        mmi = (metro * 0.00062137) * (metro * 0.00062137)
+        mmi = metro * 3.8610E-7
     }
 
     fun cht() {
@@ -189,7 +189,7 @@ class Area {
     fun cmi() {
         mim = milla * 2590000
         mih = milla * 258.998811
-        micm = (milla.toLong() * (25900000000L / 1)).toDouble()
+        micm = milla * 2.5900E+10
         miin = milla * 4014500000
         mift = milla * ((5280 / 1) * (5280 / 1))
         miyd = milla * (3097600 / 1)
