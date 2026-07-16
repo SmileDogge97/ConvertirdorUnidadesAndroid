@@ -1,28 +1,25 @@
-# Walkthrough - Pruebas Unitarias para LongitudViewModel
+# Walkthrough - Pruebas Unitarias para MasaViewModel
 
-Se han implementado las pruebas unitarias para `LongitudViewModel` siguiendo el estándar de calidad y estructura del proyecto (basado en `AreaViewModelTest`).
+Se han implementado satisfactoriamente las pruebas unitarias para el `MasaViewModel`, garantizando la integridad de los cálculos de masa y el comportamiento de la interfaz de usuario ante diferentes entradas.
 
 ## Cambios Realizados
 
-### [NEW] [LongitudViewModelTest.kt](file:///home/frankyriverswilkerson/MisProyectosDeProgramacion/MisAppsDeAndroid/ConvertidorUnidadesAndroid/app/src/test/java/com/aristidevs/convertirdorunidadesandroid/presentation/vm/LongitudViewModelTest.kt)
+### [NEW] [MasaViewModelTest.kt](file:///home/frankyriverswilkerson/MisProyectosDeProgramacion/MisAppsDeAndroid/ConvertidorUnidadesAndroid/app/src/test/java/com/aristidevs/convertirdorunidadesandroid/presentation/vm/MasaViewModelTest.kt)
 
-Se creó un nuevo archivo de pruebas que cubre:
-- **Estado Inicial**: Verifica que el ViewModel arranque con `Metro` y `0.0`.
-- **Cambio de Valor**: Valida que al ingresar "1000.0", las salidas se calculen correctamente (ej: 1.0 km, 100000.0 cm).
-- **Cambio de Unidad**: Asegura que si el usuario cambia la unidad (ej: a KM), **todas las salidas** (desde metros hasta años luz) se recalculen correctamente manteniendo el valor numérico, validando la integridad total del estado.
-- **Manejo de Errores**:
-    - Si se ingresa texto ("abc"), el valor se vuelve `null` y **todas las salidas** (desde metros hasta años luz) se resetean a `0.0`.
-    - Si se ingresa un valor vacío, el comportamiento es idéntico, asegurando una limpieza completa de la UI.
-- **Cobertura Total**: Un test exhaustivo que recorre todas las unidades de `UnidadLongitud` para prevenir errores de mapeo en el bloque `when`.
+Se creó una suite de pruebas completa que incluye:
+- **Estado Inicial**: Verifica que el ViewModel arranque correctamente (Gramo, 0.0).
+- **Conversión de Valor**: Valida que al ingresar "1000.0" gramos, se obtengan las equivalencias correctas en Kg, Libras y Toneladas.
+- **Cambio de Unidad**: Asegura que el cambio de unidad base (ej: a Kilogramo) provoque un recálculo inmediato de todas las salidas.
+- **Robustez de Entrada**:
+    - Manejo de texto no numérico: Limpia el estado y pone todas las salidas en `0.0`.
+    - Manejo de campo vacío: Comportamiento idéntico de limpieza.
+- **Mapeo de Unidades**: Un test exhaustivo que valida el flujo para Gramo, Kilogramo, Libra y Tonelada.
 
 ## Verificación
 
-Se ejecutaron las pruebas unitarias mediante Gradle:
-- **Comando**: `./gradlew :app:testDebugUnitTest`
-- **Resultado**: Todas las pruebas (173 en total en el módulo, incluyendo las nuevas) pasaron exitosamente.
+Se ejecutaron las pruebas unitarias del módulo `:app`:
+- **Resultado**: 179 pruebas pasadas (incluyendo las 6 nuevas pruebas de Masa).
+- **Precisión**: Se utilizó un `delta` de `0.001` para manejar las variaciones decimales en las conversiones de masa.
 
 > [!TIP]
-> Mantener la consistencia con `AreaViewModelTest` facilita el mantenimiento del código, ya que otros desarrolladores encontrarán una estructura familiar en todo el módulo de presentación.
-
-> [!IMPORTANT]
-> Se utilizó un `delta` de `0.001` para las comparaciones de `Double`, lo que garantiza que pequeñas variaciones de precisión en las fórmulas de conversión no causen fallos falsos en las pruebas.
+> Al igual que en Longitud, se ha mantenido la validación exhaustiva de **todas** las unidades de salida en cada escenario de prueba para evitar que cambios futuros rompan el mapeo parcial del estado.
