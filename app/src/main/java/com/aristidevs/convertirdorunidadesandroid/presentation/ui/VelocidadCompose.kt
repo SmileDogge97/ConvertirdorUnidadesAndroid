@@ -3,15 +3,14 @@ package com.aristidevs.convertirdorunidadesandroid.presentation.ui
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.DropdownMenu
@@ -48,8 +47,12 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.VelocidadViewM
     @Composable
     fun VelocidadCompose(viewModel: VelocidadViewModel = viewModel()){
         val iuState by viewModel.iuEstado.collectAsStateWithLifecycle()
+        val scrollState = rememberScrollState()
         Column(
-            modifier = Modifier.padding(7.dp),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(7.dp)
+                .verticalScroll(scrollState),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             TituloVelocidad()
@@ -64,69 +67,52 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.VelocidadViewM
     }
     @Composable
     fun VelocidadOutput(iuState: VelocidadIUEstado) {
-        Row(
-            modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Min)
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 7.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            Column(
-                modifier = Modifier.padding(end= 7.dp).fillMaxHeight()
-            ) {
-                val labelModifier = Modifier.weight(1f).wrapContentHeight(Alignment.CenterVertically).padding(top= 3.5.dp, bottom = 3.5.dp)
-                Text(
-                    text = stringResource(R.string.velocidad_m_s),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.velocidad_km_h),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.velocidad_ft_s),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.velocidad_mi_h),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.velocidad_nudo),
-                    modifier = labelModifier
-                )
-            }
-            Column(
-                modifier = Modifier.wrapContentHeight().fillMaxWidth()
-            ) {
-                val fieldModifier = Modifier.fillMaxWidth().padding(top= 3.5.dp, bottom = 3.5.dp)
-                TextField(
-                    value = iuState.salidaMs.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = iuState.salidaKmH.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = iuState.salidaFtS.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = iuState.salidaMiH.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = iuState.salidaNudo.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-            }
+            VelocidadResultadoRow(
+                label = stringResource(R.string.velocidad_m_s),
+                valor = iuState.salidaMs.toString()
+            )
+            VelocidadResultadoRow(
+                label = stringResource(R.string.velocidad_km_h),
+                valor = iuState.salidaKmH.toString()
+            )
+            VelocidadResultadoRow(
+                label = stringResource(R.string.velocidad_ft_s),
+                valor = iuState.salidaFtS.toString()
+            )
+            VelocidadResultadoRow(
+                label = stringResource(R.string.velocidad_mi_h),
+                valor = iuState.salidaMiH.toString()
+            )
+            VelocidadResultadoRow(
+                label = stringResource(R.string.velocidad_nudo),
+                valor = iuState.salidaNudo.toString()
+            )
+        }
+    }
+
+    @Composable
+    fun VelocidadResultadoRow(label: String, valor: String) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = label,
+                modifier = Modifier.weight(0.25f),
+                textAlign = TextAlign.Start
+            )
+            TextField(
+                value = valor,
+                readOnly = true,
+                onValueChange = { },
+                modifier = Modifier.weight(0.75f)
+            )
         }
     }
 
@@ -136,7 +122,7 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.VelocidadViewM
         onValueChange: (String) -> Unit,
         onUnidadChange: (UnidadVelocidad) -> Unit
     ) {
-        var entradaVelocidad by remember { mutableStateOf(if (value.equals(0.0)) "" else value.toString()) }
+        var entradaVelocidad by remember { mutableStateOf(if (value == "0.0") "" else value) }
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
@@ -165,7 +151,7 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.VelocidadViewM
     @Composable
     fun menuVelocidad(onUnidadChange: (UnidadVelocidad) -> Unit) {
         var expanded by remember { mutableStateOf(false) }
-        Box() {
+        Box {
             IconButton(onClick = { expanded = !expanded }) {
                 Icon(
                     imageVector = Icons.Default.MoreVert,
