@@ -3,15 +3,14 @@ package com.aristidevs.convertirdorunidadesandroid.presentation.ui
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.DropdownMenu
@@ -51,8 +50,12 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.TiempoViewMode
     @Composable
     fun TiempoCompose(viewModel: TiempoViewModel = viewModel()) {
         val iuState by viewModel.iuEstado.collectAsStateWithLifecycle()
+        val scrollState = rememberScrollState()
         Column(
-            modifier = Modifier.padding(7.dp),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(7.dp)
+                .verticalScroll(scrollState),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             TituloTiempo()
@@ -68,69 +71,52 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.TiempoViewMode
 
     @Composable
     fun TiempoOutput(state: TiempoIUEstado) {
-        Row(
-            modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Min)
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 7.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            Column(
-                modifier = Modifier.padding(end= 7.dp).fillMaxHeight()
-            ) {
-                val labelModifier = Modifier.weight(1f).wrapContentHeight(Alignment.CenterVertically).padding(top= 3.5.dp, bottom = 3.5.dp)
-                Text(
-                    text = stringResource(R.string.tiempo_segundo),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.tiempo_minuto),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.tiempo_hora),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.tiempo_dia),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.tiempo_anio),
-                    modifier = labelModifier
-                )
-            }
-            Column(
-                modifier = Modifier.wrapContentHeight().fillMaxWidth()
-            ) {
-                val fieldModifier = Modifier.fillMaxWidth().padding(top= 3.5.dp, bottom = 3.5.dp)
-                TextField(
-                    value = state.salidaSegundo.toString(),
-                    readOnly = true,
-                    onValueChange = {  },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaMinuto.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaHora.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaDia.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaAño.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-            }
+            TiempoResultadoRow(
+                label = stringResource(R.string.tiempo_segundo),
+                valor = state.salidaSegundo.toString()
+            )
+            TiempoResultadoRow(
+                label = stringResource(R.string.tiempo_minuto),
+                valor = state.salidaMinuto.toString()
+            )
+            TiempoResultadoRow(
+                label = stringResource(R.string.tiempo_hora),
+                valor = state.salidaHora.toString()
+            )
+            TiempoResultadoRow(
+                label = stringResource(R.string.tiempo_dia),
+                valor = state.salidaDia.toString()
+            )
+            TiempoResultadoRow(
+                label = stringResource(R.string.tiempo_anio),
+                valor = state.salidaAño.toString()
+            )
+        }
+    }
+
+    @Composable
+    fun TiempoResultadoRow(label: String, valor: String) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = label,
+                modifier = Modifier.weight(0.25f),
+                textAlign = TextAlign.Start
+            )
+            TextField(
+                value = valor,
+                readOnly = true,
+                onValueChange = { },
+                modifier = Modifier.weight(0.75f)
+            )
         }
     }
 
@@ -140,7 +126,7 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.TiempoViewMode
         onValueChange: (String) -> Unit,
         onUnidadChange: (UnidadTiempo) -> Unit
     ) {
-        var entradaTiempo by remember { mutableStateOf(if(value.equals(0.0)) "" else value.toString()) }
+        var entradaTiempo by remember { mutableStateOf(if(value == "0.0") "" else value) }
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
@@ -170,7 +156,7 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.TiempoViewMode
     @Composable
     private fun menuTiempo(onUnidadChange: (UnidadTiempo) -> Unit) {
         var expanded by remember { mutableStateOf(false) }
-        Box() {
+        Box {
             IconButton(onClick = { expanded = !expanded }) {
                 Icon(
                     imageVector = Icons.Default.MoreVert,
