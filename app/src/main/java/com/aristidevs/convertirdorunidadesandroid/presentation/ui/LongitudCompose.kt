@@ -3,14 +3,11 @@ package com.aristidevs.convertirdorunidadesandroid.presentation.ui
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
@@ -51,8 +48,12 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.LongitudViewMo
     @Composable
     fun LongitudCompose(viewModel : LongitudViewModel = viewModel()) {
         val iuState by viewModel.iuEstado.collectAsStateWithLifecycle()
+        val scrollState = rememberScrollState()
         Column(
-            modifier = Modifier.padding(7.dp),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(7.dp)
+                .verticalScroll(scrollState),
             horizontalAlignment = Alignment.CenterHorizontally) {
             TituloLongitud()
             LongitudInput(
@@ -67,110 +68,68 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.LongitudViewMo
 
     @Composable
     fun LongitudOutput(state : LongitudIUEstado) {
-        Row(
-            modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Min)
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 7.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            Column(
-                modifier = Modifier.padding(end= 7.dp).fillMaxHeight()
-            ) {
-                val labelModifier = Modifier.weight(1f).wrapContentHeight(Alignment.CenterVertically).padding(top= 3.5.dp, bottom = 3.5.dp)
-                Text(
-                    text = stringResource(R.string.longitud_metro),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.longitud_kilometro),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.longitud_centimetro),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.longitud_pulgada),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.longitud_pie),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.longitud_yarda),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.longitud_milla),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.longitud_milla_nautica),
-                    maxLines = 2,
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.longitud_anos_luz),
-                    modifier = labelModifier
-                )
-            }
-            Column(
-                modifier = Modifier.wrapContentHeight().fillMaxWidth()
-            ) {
-                val fieldModifier = Modifier.fillMaxWidth().padding(top = 3.5.dp, bottom = 3.5.dp)
-                TextField(
-                    value = state.salidaMetro.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaKilometro.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaCentimetro.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaPulgada.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaPies.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaYardas.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaMillas.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaMillasNauticas.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaAñosLuz.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-            }
+            LongitudResultadoRow(
+                label = stringResource(R.string.longitud_metro),
+                valor = state.salidaMetro.toString()
+            )
+            LongitudResultadoRow(
+                label = stringResource(R.string.longitud_kilometro),
+                valor = state.salidaKilometro.toString()
+            )
+            LongitudResultadoRow(
+                label = stringResource(R.string.longitud_centimetro),
+                valor = state.salidaCentimetro.toString()
+            )
+            LongitudResultadoRow(
+                label = stringResource(R.string.longitud_pulgada),
+                valor = state.salidaPulgada.toString()
+            )
+            LongitudResultadoRow(
+                label = stringResource(R.string.longitud_pie),
+                valor = state.salidaPies.toString()
+            )
+            LongitudResultadoRow(
+                label = stringResource(R.string.longitud_yarda),
+                valor = state.salidaYardas.toString()
+            )
+            LongitudResultadoRow(
+                label = stringResource(R.string.longitud_milla),
+                valor = state.salidaMillas.toString()
+            )
+            LongitudResultadoRow(
+                label = stringResource(R.string.longitud_milla_nautica),
+                valor = state.salidaMillasNauticas.toString()
+            )
+            LongitudResultadoRow(
+                label = stringResource(R.string.longitud_anos_luz),
+                valor = state.salidaAñosLuz.toString()
+            )
+        }
+    }
+
+    @Composable
+    fun LongitudResultadoRow(label: String, valor: String) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = label,
+                modifier = Modifier.weight(0.25f),
+                textAlign = TextAlign.Start
+            )
+            TextField(
+                value = valor,
+                readOnly = true,
+                onValueChange = { },
+                modifier = Modifier.weight(0.75f)
+            )
         }
     }
 
@@ -181,7 +140,7 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.LongitudViewMo
         onValueChange: (String) -> Unit,
         onUnidadChange: (UnidadLongitud) -> Unit
     ){
-        var entradaLongitud by remember { mutableStateOf(if(value.equals(0.0)) "" else value.toString()) }
+        var entradaLongitud by remember { mutableStateOf(if(value == "0.0") "" else value) }
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
@@ -210,7 +169,7 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.LongitudViewMo
     @Composable
     fun menuLongitud(onUnidadChange: (UnidadLongitud) -> Unit) {
         var expanded by remember { mutableStateOf(false) }
-        Box() {
+        Box {
             IconButton(onClick = {expanded = !expanded }) {
                 Icon(
                     imageVector = Icons.Default.MoreVert,
