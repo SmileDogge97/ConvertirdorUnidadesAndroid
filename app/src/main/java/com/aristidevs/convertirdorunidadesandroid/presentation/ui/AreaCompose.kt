@@ -3,14 +3,13 @@ package com.aristidevs.convertirdorunidadesandroid.UI
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
@@ -50,7 +49,11 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.AreaViewModel
     @Composable
     fun AreaCompose(viewModel: AreaViewModel = viewModel()){
         val iuState by viewModel.iuEstado.collectAsStateWithLifecycle()
-        Column(modifier = Modifier.padding(7.dp),
+        val scrollState = rememberScrollState()
+        Column(modifier = Modifier
+            .fillMaxSize()
+            .padding(7.dp)
+            .verticalScroll(scrollState),
             horizontalAlignment = Alignment.CenterHorizontally) {
             TituloArea()
             AreaInput(
@@ -65,89 +68,60 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.AreaViewModel
 
     @Composable
     fun AreaOutput(state: AreaIUEstado) {
-        Row(
-            modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Min)
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 7.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            Column(
-                modifier = Modifier.padding(7.dp).fillMaxHeight()
-            ) {
-                val labelModifier = Modifier.weight(1f).wrapContentHeight(Alignment.CenterVertically).padding(top = 3.5.dp, bottom = 3.5.dp)
-                Text(
-                    text = stringResource(R.string.area_metro),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.area_hectarea),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.area_centimetro),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.area_pulgada),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.area_pie),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.area_yarda),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.area_milla),
-                    modifier = labelModifier
-                )
-            }
-            Column(
-                modifier = Modifier.wrapContentHeight().fillMaxWidth()
-            ) {
-                val fieldModifier = Modifier.fillMaxWidth().padding(top = 3.5.dp, bottom = 3.5.dp)
-                TextField(
-                    value = state.salidaMetro.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaHectarea.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaCentimetro.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaPulgada.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaPie.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaYarda.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaMilla.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-            }
+            AreaResultadoRow(
+                label = stringResource(R.string.area_metro),
+                valor = state.salidaMetro.toString()
+            )
+            AreaResultadoRow(
+                label = stringResource(R.string.area_hectarea),
+                valor = state.salidaHectarea.toString()
+            )
+            AreaResultadoRow(
+                label = stringResource(R.string.area_centimetro),
+                valor = state.salidaCentimetro.toString()
+            )
+            AreaResultadoRow(
+                label = stringResource(R.string.area_pulgada),
+                valor = state.salidaPulgada.toString()
+            )
+            AreaResultadoRow(
+                label = stringResource(R.string.area_pie),
+                valor = state.salidaPie.toString()
+            )
+            AreaResultadoRow(
+                label = stringResource(R.string.area_yarda),
+                valor = state.salidaYarda.toString()
+            )
+            AreaResultadoRow(
+                label = stringResource(R.string.area_milla),
+                valor = state.salidaMilla.toString()
+            )
+        }
+    }
+
+    @Composable
+    fun AreaResultadoRow(label: String, valor: String) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = label,
+                modifier = Modifier.weight(0.25f),
+                textAlign = TextAlign.Start
+            )
+            TextField(
+                value = valor,
+                readOnly = true,
+                onValueChange = { },
+                modifier = Modifier.weight(0.75f)
+            )
         }
     }
 
@@ -158,7 +132,7 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.AreaViewModel
         onUnidadChange: (UnidadArea) -> Unit
     ) {
 
-        var entradaArea by remember { mutableStateOf(if(value.equals(0.0)) "" else value.toString()) }
+        var entradaArea by remember { mutableStateOf(if(value == "0.0") "" else value) }
 
         Row(modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
@@ -187,7 +161,7 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.AreaViewModel
     @Composable
     private fun menuArea(onUnidadChange: (UnidadArea) -> Unit) {
         var expanded by remember { mutableStateOf(false) }
-        Box() {
+        Box {
             IconButton(onClick = { expanded = !expanded }) {
                 Icon(
                     imageVector = Icons.Default.MoreVert,
