@@ -1,18 +1,16 @@
 package com.aristidevs.convertirdorunidadesandroid.UI
 
-import android.graphics.Paint
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.DropdownMenu
@@ -52,7 +50,11 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.VolumenViewMod
 @Composable
 fun VolumenCompose(viewModel: VolumenViewModel = viewModel()){
     val iuState by viewModel.iuEstado.collectAsStateWithLifecycle()
-    Column(modifier = Modifier.padding(7.dp),
+    val scrollState = rememberScrollState()
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .padding(7.dp)
+        .verticalScroll(scrollState),
         horizontalAlignment = Alignment.CenterHorizontally) {
         TituloVolumen()
         VolumenInput(
@@ -67,75 +69,56 @@ fun VolumenCompose(viewModel: VolumenViewModel = viewModel()){
 
     @Composable
     fun VolumenOutput(state: VolumenIUEstado) {
-        Row(
-            modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Min)
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 7.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            Column(modifier = Modifier.padding(end = 7.dp).fillMaxHeight()) {
-                val labelModifier = Modifier.weight(1f).wrapContentHeight(Alignment.CenterVertically).padding(top = 3.5.dp, bottom = 3.5.dp)
-                Text(
-                    text = stringResource(R.string.volumen_centimetro),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.volumen_metro),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.volumen_pie),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.volumen_pulgada),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.volumen_litro),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.volumen_galon),
-                    modifier = labelModifier
-                )
-            }
-            Column(modifier = Modifier.wrapContentHeight().fillMaxWidth()) {
-                val fieldModifier = Modifier.fillMaxWidth().padding(top = 3.5.dp, bottom = 3.5.dp)
-                TextField(
-                    value = state.salidaCentimetro.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaMetro.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaPie.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaPulgada.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaLitro.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaGalon.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-            }
+            VolumenResultadoRow(
+                label = stringResource(R.string.volumen_centimetro),
+                valor = state.salidaCentimetro.toString()
+            )
+            VolumenResultadoRow(
+                label = stringResource(R.string.volumen_metro),
+                valor = state.salidaMetro.toString()
+            )
+            VolumenResultadoRow(
+                label = stringResource(R.string.volumen_pie),
+                valor = state.salidaPie.toString()
+            )
+            VolumenResultadoRow(
+                label = stringResource(R.string.volumen_pulgada),
+                valor = state.salidaPulgada.toString()
+            )
+            VolumenResultadoRow(
+                label = stringResource(R.string.volumen_litro),
+                valor = state.salidaLitro.toString()
+            )
+            VolumenResultadoRow(
+                label = stringResource(R.string.volumen_galon),
+                valor = state.salidaGalon.toString()
+            )
+        }
+    }
+
+    @Composable
+    fun VolumenResultadoRow(label: String, valor: String) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = label,
+                modifier = Modifier.weight(0.25f),
+                textAlign = TextAlign.Start
+            )
+            TextField(
+                value = valor,
+                readOnly = true,
+                onValueChange = { },
+                modifier = Modifier.weight(0.75f)
+            )
         }
     }
 
@@ -146,7 +129,7 @@ fun VolumenCompose(viewModel: VolumenViewModel = viewModel()){
         onValueChange: (String) -> Unit,
         onUnidadChange: (UnidadVolumen) -> Unit
     ) {
-        var entradaVolumen by remember { mutableStateOf(if(value.equals(0.0)) "" else value.toString()) }
+        var entradaVolumen by remember { mutableStateOf(if(value == "0.0") "" else value) }
 
         Row(modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
@@ -176,7 +159,7 @@ fun VolumenCompose(viewModel: VolumenViewModel = viewModel()){
     @Composable
     private fun menuVolumen(onUnidadChange: (UnidadVolumen) -> Unit) {
         var expanded by remember { mutableStateOf(false) }
-        Box() {
+        Box {
             IconButton(onClick = { expanded = !expanded }) {
                 Icon(
                     imageVector = Icons.Default.MoreVert,
