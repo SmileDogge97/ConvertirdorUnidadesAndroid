@@ -3,15 +3,14 @@ package com.aristidevs.convertirdorunidadesandroid.presentation.ui
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.DropdownMenu
@@ -49,8 +48,12 @@ import com.aristidevs.convertirdorunidadesandroid.presentation.vm.MasaViewModel
 @Composable
 fun PesoCompose(viewModel: MasaViewModel = viewModel()){
     val iuState by viewModel.iuEstado.collectAsStateWithLifecycle()
+    val scrollState = rememberScrollState()
     Column(
-        modifier = Modifier.padding(7.dp),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(7.dp)
+            .verticalScroll(scrollState),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         TituloPeso()
@@ -66,59 +69,48 @@ fun PesoCompose(viewModel: MasaViewModel = viewModel()){
 
     @Composable
     fun PesoOutput(state: MasaIUEstado) {
-        Row(
-            modifier = Modifier.fillMaxWidth().height(IntrinsicSize.Min)
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 7.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
-            Column(
-                modifier = Modifier.padding(end= 7.dp).fillMaxHeight()
-            ) {
-                val labelModifier = Modifier.weight(1f).wrapContentHeight(Alignment.CenterVertically).padding(top= 3.5.dp, bottom = 3.5.dp)
-                Text(
-                    text = stringResource(R.string.peso_gramo),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.peso_kilogramo),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.peso_libra),
-                    modifier = labelModifier
-                )
-                Text(
-                    text = stringResource(R.string.peso_tonelada),
-                    modifier = labelModifier
-                )
-            }
-            Column(
-                modifier = Modifier.wrapContentHeight().fillMaxWidth()
-            ) {
-                val fieldModifier = Modifier.fillMaxWidth().padding(top= 3.5.dp, bottom = 3.5.dp)
-                TextField(
-                    value = state.salidaGramo.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaKilogramo.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaLibra.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-                TextField(
-                    value = state.salidaTonelada.toString(),
-                    readOnly = true,
-                    onValueChange = { },
-                    modifier = fieldModifier
-                )
-            }
+            PesoResultadoRow(
+                label = stringResource(R.string.peso_gramo),
+                valor = state.salidaGramo.toString()
+            )
+            PesoResultadoRow(
+                label = stringResource(R.string.peso_kilogramo),
+                valor = state.salidaKilogramo.toString()
+            )
+            PesoResultadoRow(
+                label = stringResource(R.string.peso_libra),
+                valor = state.salidaLibra.toString()
+            )
+            PesoResultadoRow(
+                label = stringResource(R.string.peso_tonelada),
+                valor = state.salidaTonelada.toString()
+            )
+        }
+    }
+
+    @Composable
+    fun PesoResultadoRow(label: String, valor: String) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = label,
+                modifier = Modifier.weight(0.25f),
+                textAlign = TextAlign.Start
+            )
+            TextField(
+                value = valor,
+                readOnly = true,
+                onValueChange = { },
+                modifier = Modifier.weight(0.75f)
+            )
         }
     }
 
@@ -129,7 +121,7 @@ fun PesoCompose(viewModel: MasaViewModel = viewModel()){
         onValueChange: (String) -> Unit,
         onUnidadChange: (UnidadMasa) -> Unit
     ){
-        var entradaPeso by remember { mutableStateOf(if(value.equals(0.0)) "" else value.toString()) }
+        var entradaPeso by remember { mutableStateOf(if(value == "0.0") "" else value) }
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
@@ -158,7 +150,7 @@ fun PesoCompose(viewModel: MasaViewModel = viewModel()){
     @Composable
     fun menuPeso(onUnidadChange: (UnidadMasa) -> Unit) {
         var expanded by remember { mutableStateOf(false) }
-        Box() {
+        Box {
             IconButton(onClick = {expanded = !expanded }) {
                 Icon(
                     imageVector = Icons.Default.MoreVert,
