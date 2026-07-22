@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "327133111462",
+    "project_id": "convertirdorunidades-ea748c90",
+    "storage_bucket": "convertirdorunidades-ea748c90.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327133111462:android:dfbb783c4765a1d2548067",
+        "android_client_info": {
+          "package_name": "com.jfsolutions.convertirdorunidadesandroid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1hgJ08gAs7FQ1XQ2MnjPye8Iq63niqcI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
