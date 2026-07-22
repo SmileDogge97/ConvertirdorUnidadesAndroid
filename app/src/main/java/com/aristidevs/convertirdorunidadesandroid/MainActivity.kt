@@ -104,14 +104,6 @@ fun Encabezado(navController: NavHostController) {
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        Row(){
-            Text(
-                text = "CONVERSION",
-                fontFamily = monserratFamily,
-                fontWeight = FontWeight.Bold
-            )
-        }
-
         MenuDesplegable(navController)
     }
 }
