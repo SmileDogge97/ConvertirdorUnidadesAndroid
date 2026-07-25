@@ -83,7 +83,7 @@
     <string name="longitud_milla_nautica">Milla Nautica</string>
     <string name="longitud_anos_luz">Años Luz</string>
 
-    <!--Ad Uit ID-->
-    <string name="banner_ad_unit_id_QA">ca-app-pub-3940256099942544~6300978111</string>
-    <string name="banner_ad_unit_id_PROD">ca-app-pub-2546662781964002~1993811313</string>
+    <string name="admob_app_id">ca-app-pub-2546662781964002~1993811313</string>
+    <string name="admob_bloque_anuncios_id">ca-app-pub-2546662781964002/7657321674</string>
+    <string name="admob_bloque_anuncios_id_test">ca-app-pub-3940256099942544/6300978111</string>
 </resources>
