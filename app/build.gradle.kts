@@ -12,7 +12,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.jfsolutions.convertirdorunidadesandroid"
+        applicationId = "com.jfjm_solutions.convertirdorunidadesandroid"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
