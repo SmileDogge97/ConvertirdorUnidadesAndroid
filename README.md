@@ -59,7 +59,7 @@ Sigue estos pasos para compilar y ejecutar el proyecto localmente:
 |   <img height="700" src="/home/frankyriverswilkerson/MisProyectosDeProgramacion/MisAppsDeAndroid/ConvertidorUnidadesAndroid/captures/Screenshot_20260812_175645.png" title="Pantalla de conversión de tiempo" width="300"/>    |
 |  <img height="700" src="/home/frankyriverswilkerson/MisProyectosDeProgramacion/MisAppsDeAndroid/ConvertidorUnidadesAndroid/captures/Screenshot_20260812_175701.png" title="Pantalla de conversión de velocidad" width="300"/>  |
 |     <img height="700" src="/home/frankyriverswilkerson/MisProyectosDeProgramacion/MisAppsDeAndroid/ConvertidorUnidadesAndroid/captures/Screenshot_20260812_175728.png" title="Pantalla de conversón de masa" width="300"/>     |
-|   <img alt="Pantalla de conversión de longitud" height="700" src="/home/frankyriverswilkerson/MisProyectosDeProgramacion/MisAppsDeAndroid/ConvertidorUnidadesAndroid/captures/Screenshot_20260812_175745.png" width="300"/>    |
+|   <img height="700" src="/home/frankyriverswilkerson/MisProyectosDeProgramacion/MisAppsDeAndroid/ConvertidorUnidadesAndroid/captures/Screenshot_20260812_175745.png" title="Pantalla de conversión de longitud" width="300"/>    |
 
 ## 🧪 Pruebas Unitarias (Testing)
 
