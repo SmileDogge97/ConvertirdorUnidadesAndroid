@@ -52,14 +52,14 @@ Sigue estos pasos para compilar y ejecutar el proyecto localmente:
 
 |                                                                                                       Retrato (Portrait)                                                                                                       |
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-|          <img height="700" src="/home/frankyriverswilkerson/MisProyectosDeProgramacion/MisAppsDeAndroid/ConvertidorUnidadesAndroid/captures/Screenshot_20260812_175414.png" title="Pantalla de inicio" width="300"/>           |
-| <img height="700" src="/home/frankyriverswilkerson/MisProyectosDeProgramacion/MisAppsDeAndroid/ConvertidorUnidadesAndroid/captures/Screenshot_20260812_175552.png" title="Pantalla de conversión de temperatura" width="300"/> |
-|    <img height="700" src="/home/frankyriverswilkerson/MisProyectosDeProgramacion/MisAppsDeAndroid/ConvertidorUnidadesAndroid/captures/Screenshot_20260812_175608.png" title="Pantalla de conversión de area" width="300"/>     |
-|   <img height="700" src="/home/frankyriverswilkerson/MisProyectosDeProgramacion/MisAppsDeAndroid/ConvertidorUnidadesAndroid/captures/Screenshot_20260812_175630.png" title="Pantalla de conversión de volumen" width="300"/>   |
-|   <img height="700" src="/home/frankyriverswilkerson/MisProyectosDeProgramacion/MisAppsDeAndroid/ConvertidorUnidadesAndroid/captures/Screenshot_20260812_175645.png" title="Pantalla de conversión de tiempo" width="300"/>    |
-|  <img height="700" src="/home/frankyriverswilkerson/MisProyectosDeProgramacion/MisAppsDeAndroid/ConvertidorUnidadesAndroid/captures/Screenshot_20260812_175701.png" title="Pantalla de conversión de velocidad" width="300"/>  |
-|     <img height="700" src="/home/frankyriverswilkerson/MisProyectosDeProgramacion/MisAppsDeAndroid/ConvertidorUnidadesAndroid/captures/Screenshot_20260812_175728.png" title="Pantalla de conversón de masa" width="300"/>     |
-|   <img height="700" src="/home/frankyriverswilkerson/MisProyectosDeProgramacion/MisAppsDeAndroid/ConvertidorUnidadesAndroid/captures/Screenshot_20260812_175745.png" title="Pantalla de conversión de longitud" width="300"/>    |
+|          <img height="700" src="captures/Screenshot_20260812_175414.png" title="Pantalla de inicio" width="300"/>           |
+| <img height="700" src="captures/Screenshot_20260812_175552.png" title="Pantalla de conversión de temperatura" width="300"/> |
+|    <img height="700" src="captures/Screenshot_20260812_175608.png" title="Pantalla de conversión de area" width="300"/>     |
+|   <img height="700" src="captures/Screenshot_20260812_175630.png" title="Pantalla de conversión de volumen" width="300"/>   |
+|   <img height="700" src="captures/Screenshot_20260812_175645.png" title="Pantalla de conversión de tiempo" width="300"/>    |
+|  <img height="700" src="captures/Screenshot_20260812_175701.png" title="Pantalla de conversión de velocidad" width="300"/>  |
+|     <img height="700" src="captures/Screenshot_20260812_175728.png" title="Pantalla de conversón de masa" width="300"/>     |
+|   <img height="700" src="captures/Screenshot_20260812_175745.png" title="Pantalla de conversión de longitud" width="300"/>    |
 
 ## 🧪 Pruebas Unitarias (Testing)
 
